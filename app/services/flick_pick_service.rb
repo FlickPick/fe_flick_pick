@@ -1,0 +1,3 @@
+class FlickPickService < ApplicationService
+  
+end
