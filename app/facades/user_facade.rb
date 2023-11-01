@@ -2,10 +2,9 @@ class UserFacade
   def self.search_user(id)
     service = FlickPickService.new
     response = service.users_show(id)
-
-    attributes = json[:data][:attributes]
+    attributes = response[:data][:attributes]
     User.new(
-      id: json[:data][:id],
+      id: response[:data][:id],
       name: attributes[:name],
       email: attributes[:email],
       role: attributes[:role], 
