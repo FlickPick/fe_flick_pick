@@ -5,12 +5,18 @@ RSpec.describe User do
     attributes = {
       id: "1", 
       name: "User", 
-      email: "useremail"
+      email: "useremail", 
+      role: "1", 
+      language_pref: "3", 
+      movie_history: "movie"
     }
 
     user = User.new(attributes)
     expect(user.id).to eq("1")
     expect(user.name).to eq("User")
     expect(user.email).to eq("useremail")
+    expect(user.role).to eq("1")
+    expect(user.language_pref).to eq("3")
+    expect(user.movie_history).to eq("movie")
   end
 end

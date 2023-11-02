@@ -4,14 +4,18 @@ class FlickPickService < ApplicationService
   end
 
   def users_show(id)
-    json_parse(conn.get("/api/v1/users/#{id}")
+    json_parse(conn.get("/api/v1/users/#{id}"))
   end
 
   def users_create(body)
     conn.post("/api/v1/users/new", body)
+  end
 
   def users_update(user_id, body)
     conn.post("/api/v1/users/#{user_id}", body)
   end
 
+  def parties_show(id)
+    json_parse(conn.get("/api/v1/parties/#{id}"))
+  end
 end

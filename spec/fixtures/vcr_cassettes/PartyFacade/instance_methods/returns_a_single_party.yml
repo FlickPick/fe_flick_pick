@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/parties/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"a7b9d1cdab652a706c2fabd18baf35e1"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d234d0d3-1e4a-4c62-b343-bfb7d1a1bd91
+      X-Runtime:
+      - '0.008724'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, sql.active_record;dur=2.04, instantiation.active_record;dur=0.20,
+        process_action.action_controller;dur=4.54
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"party","attributes":{"access_code":"a2diif","max_rating":4,"max_duration":270,"genres":"[\"est\",
+        \"dolor\"]","services":"[\"ut\", \"officia\", \"facere\"]","languages":"[\"velit\",
+        \"non\"]","format":0,"movie_id":33270}}}'
+  recorded_at: Thu, 02 Nov 2023 02:17:30 GMT
+recorded_with: VCR 6.2.0
