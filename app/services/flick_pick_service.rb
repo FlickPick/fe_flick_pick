@@ -15,4 +15,7 @@ class FlickPickService < ApplicationService
     conn.post("/api/v1/users/#{user_id}", body)
   end
 
+  def parties_show(id)
+    json_parse(conn.get("/api/v1/parties/#{id}"))
+  end
 end
