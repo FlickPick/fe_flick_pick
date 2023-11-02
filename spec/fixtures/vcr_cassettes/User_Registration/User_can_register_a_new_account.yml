@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3000/api/v1/users
+    body:
+      encoding: UTF-8
+      string: '{"user":{"user":{"name":"John Doe","email":"johndoe@example.com","role":"1","language_pref":"1","password_digest":null}}}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - text/html
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 1ee4602c-54d3-4a95-b2d9-412d77d5ad9a
+      X-Runtime:
+      - '0.029581'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.11, unpermitted_parameters.action_controller;dur=0.27,
+        sql.active_record;dur=3.70, process_action.action_controller;dur=23.57
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 02 Nov 2023 17:19:07 GMT
+recorded_with: VCR 6.2.0

@@ -1,4 +1,18 @@
 class UserFacade 
+
+  def create_user(params)
+    user_data = {
+      name: params[:name], 
+      email: params[:email],
+      role: params[:role],
+      language_pref: params[:language_pref],
+      password_digest: params[:password]
+    }
+    
+    user_service = FlickPickService.new
+    user_service.create_user(user_data)
+  end
+
   def self.search_user(id)
     service = FlickPickService.new
     response = service.users_show(id)
