@@ -5,7 +5,7 @@ class UserFacade
       name: params[:name], 
       email: params[:email],
       role: params[:role],
-      password_digest: params[:password]
+      password: params[:password]
     }
     
     user_service = FlickPickService.new
