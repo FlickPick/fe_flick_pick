@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   root "welcome#index"
   resources :users, only: [:show, :new, :create]
   resources :parties, only: [:show]
-  resources :sessions, only: [:create, :new]
+  resources :sessions, only: [:create, :new, :destroy]
 end

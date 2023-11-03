@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
   def show 
-    @user = UserFacade.search_user(params[:id])
+    # @user = UserFacade.search_user(params[:id])
+    # if admin?
+    if current_user
+      @user = UserFacade.search_user(@_current_user&.id)
+    else
+      flash[:error] = "Please log in"
+      redirect_to new_session_path
+    end
   end
 
   def new
@@ -16,7 +23,7 @@ class UsersController < ApplicationController
       redirect_to "/users/#{user_id}"
     else
       flash[:error] = "Error creating user"
-      render :new
+      render new_user_path
     end
   end
 end
