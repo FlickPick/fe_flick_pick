@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "User Registration", type: :feature do
-  it "User can register a new account", :vcr do
+  it "User can register a new account" do
     visit "/users/new"
 
     fill_in "Name", with: "John"
