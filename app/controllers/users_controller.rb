@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       response_data = JSON.parse(response.body)
       user_id = response_data["data"]["id"]
       flash[:success] = "User created successfully"
+      session[:user_id] = user_id
       redirect_to "/users/#{user_id}"
     else
       flash[:error] = "Error creating user"
