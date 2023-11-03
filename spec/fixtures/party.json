@@ -1,0 +1,14 @@
+{
+  "data": {
+      "id": "1",
+      "type": "party",
+      "attributes": {
+          "access_code": "ABC123",
+          "max_rating": 5,
+          "max_duration": 120,
+          "genres": "Action, Comedy",
+          "services": "Netflix, Hulu",
+          "movie_id": 1
+      }
+  }
+}

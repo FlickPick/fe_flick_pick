@@ -5,7 +5,7 @@ http_interactions:
     uri: http://localhost:3000/api/v1/users
     body:
       encoding: UTF-8
-      string: '{"user":{"user":{"name":"John Doe","email":"johndoe@example.com","role":"1","language_pref":"1","password_digest":null}}}'
+      string: '{"user":{"name":"John","email":"100@example.com","role":"1","password_digest":"password123"}}'
     headers:
       User-Agent:
       - Faraday v2.7.11
@@ -17,8 +17,8 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 201
+      message: Created
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -33,20 +33,74 @@ http_interactions:
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Content-Type:
-      - text/html
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"1f8d7af71f97938feeea8941b9697bfd"
       Cache-Control:
-      - no-cache
+      - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1ee4602c-54d3-4a95-b2d9-412d77d5ad9a
+      - 171d0e08-fc65-4ad5-b617-c1c29e31dffa
       X-Runtime:
-      - '0.029581'
+      - '0.017468'
       Server-Timing:
-      - start_processing.action_controller;dur=0.11, unpermitted_parameters.action_controller;dur=0.27,
-        sql.active_record;dur=3.70, process_action.action_controller;dur=23.57
+      - start_processing.action_controller;dur=0.11, sql.active_record;dur=6.90, process_action.action_controller;dur=11.33
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
+      string: '{"data":{"id":"6","type":"user","attributes":{"name":"John","email":"100@example.com","role":1,"movie_history":""}}}'
+  recorded_at: Fri, 03 Nov 2023 03:54:36 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/6
+    body:
+      encoding: US-ASCII
       string: ''
-  recorded_at: Thu, 02 Nov 2023 17:19:07 GMT
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"1f8d7af71f97938feeea8941b9697bfd"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 40c8645e-1964-46e4-80ee-a118ffa7441b
+      X-Runtime:
+      - '0.005627'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=0.75, instantiation.active_record;dur=0.08,
+        process_action.action_controller;dur=2.48
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"6","type":"user","attributes":{"name":"John","email":"100@example.com","role":1,"movie_history":""}}}'
+  recorded_at: Fri, 03 Nov 2023 03:54:36 GMT
 recorded_with: VCR 6.2.0

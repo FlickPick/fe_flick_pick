@@ -5,7 +5,6 @@ class UserFacade
       name: params[:name], 
       email: params[:email],
       role: params[:role],
-      language_pref: params[:language_pref],
       password_digest: params[:password]
     }
     
@@ -21,8 +20,7 @@ class UserFacade
       id: response[:data][:id],
       name: attributes[:name],
       email: attributes[:email],
-      role: attributes[:role], 
-      language_pref: attributes[:language_pref], 
+      role: attributes[:role],
       movie_history: attributes[:movie_history]
       )
   end

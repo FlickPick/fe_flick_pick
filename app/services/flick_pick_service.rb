@@ -22,4 +22,12 @@ class FlickPickService < ApplicationService
   def parties_show(id)
     json_parse(conn.get("/api/v1/parties/#{id}"))
   end
+
+  def create_party(party_data)
+    response = conn.post('/api/v1/users') do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.body = { party: party_data }.to_json
+    end
+    response
+  end
 end
