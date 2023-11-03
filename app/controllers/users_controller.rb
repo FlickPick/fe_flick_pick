@@ -10,9 +10,10 @@ class UsersController < ApplicationController
     @user_facade = UserFacade.new
     response = @user_facade.create_user(params)
     if response.status == 201
-      new_user = User.new(JSON.parse(response.body, symbolize_names: true)[:data])
+      response_data = JSON.parse(response.body)
+      user_id = response_data["data"]["id"]
       flash[:success] = "User created successfully"
-      redirect_to "/users/#{new_user.id}"
+      redirect_to "/users/#{user_id}"
     else
       flash[:error] = "Error creating user"
       render :new

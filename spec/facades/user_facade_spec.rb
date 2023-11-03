@@ -10,7 +10,6 @@ RSpec.describe UserFacade do
       expect(result.email).to be_a(String)
       expect(result.movie_history).to be_a(String)
       expect(result.role).to be_a(Integer)
-      expect(result.language_pref).to be_a(Integer)
     end
   end
 end

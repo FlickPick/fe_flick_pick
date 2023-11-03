@@ -4,12 +4,11 @@ RSpec.feature "User Registration", type: :feature do
   it "User can register a new account" do
     visit "/users/new"
 
-    fill_in "Name", with: "John Doe"
-    fill_in "Email", with: "johndoe13@example.com"
+    fill_in "Name", with: "John"
+    fill_in "Email", with: "100@example.com"
     fill_in "Password", with: "password123"
     fill_in "Password confirmation", with: "password123"
     click_button "Create New User"
-    
-    expect(current_path).to eq("/")
+    expect(current_path).to eq("/users/6")
   end
 end

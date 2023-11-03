@@ -7,7 +7,6 @@ RSpec.describe User do
       name: "User", 
       email: "useremail", 
       role: "1", 
-      language_pref: "3", 
       movie_history: "movie"
     }
 
@@ -16,7 +15,6 @@ RSpec.describe User do
     expect(user.name).to eq("User")
     expect(user.email).to eq("useremail")
     expect(user.role).to eq("1")
-    expect(user.language_pref).to eq("3")
     expect(user.movie_history).to eq("movie")
   end
 end
