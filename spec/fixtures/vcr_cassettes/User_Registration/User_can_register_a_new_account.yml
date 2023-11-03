@@ -5,7 +5,7 @@ http_interactions:
     uri: http://localhost:3000/api/v1/users
     body:
       encoding: UTF-8
-      string: '{"user":{"name":"John","email":"100@example.com","role":"1","password_digest":"password123"}}'
+      string: '{"user":{"name":"John","email":"200@example.com","role":"1","password":"password123"}}'
     headers:
       User-Agent:
       - Faraday v2.7.11
@@ -37,24 +37,24 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"1f8d7af71f97938feeea8941b9697bfd"
+      - W/"3548a79a8781bdcfde86926019e79a1b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 171d0e08-fc65-4ad5-b617-c1c29e31dffa
+      - 920109c0-1818-4a56-a392-f3198bb30ef7
       X-Runtime:
-      - '0.017468'
+      - '0.285913'
       Server-Timing:
-      - start_processing.action_controller;dur=0.11, sql.active_record;dur=6.90, process_action.action_controller;dur=11.33
+      - start_processing.action_controller;dur=0.17, sql.active_record;dur=8.30, process_action.action_controller;dur=279.11
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"6","type":"user","attributes":{"name":"John","email":"100@example.com","role":1,"movie_history":""}}}'
-  recorded_at: Fri, 03 Nov 2023 03:54:36 GMT
+      string: '{"data":{"id":"11","type":"user","attributes":{"name":"John","email":"200@example.com","role":1,"movie_history":""}}}'
+  recorded_at: Fri, 03 Nov 2023 04:39:09 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/users/6
+    uri: http://localhost:3000/api/v1/users/11
     body:
       encoding: US-ASCII
       string: ''
@@ -87,20 +87,20 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"1f8d7af71f97938feeea8941b9697bfd"
+      - W/"3548a79a8781bdcfde86926019e79a1b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 40c8645e-1964-46e4-80ee-a118ffa7441b
+      - 00b63ac1-2725-45ab-8d5d-5068d59c789b
       X-Runtime:
-      - '0.005627'
+      - '0.005818'
       Server-Timing:
-      - start_processing.action_controller;dur=0.06, sql.active_record;dur=0.75, instantiation.active_record;dur=0.08,
-        process_action.action_controller;dur=2.48
+      - start_processing.action_controller;dur=0.04, sql.active_record;dur=1.31, instantiation.active_record;dur=0.07,
+        process_action.action_controller;dur=2.80
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"6","type":"user","attributes":{"name":"John","email":"100@example.com","role":1,"movie_history":""}}}'
-  recorded_at: Fri, 03 Nov 2023 03:54:36 GMT
+      string: '{"data":{"id":"11","type":"user","attributes":{"name":"John","email":"200@example.com","role":1,"movie_history":""}}}'
+  recorded_at: Fri, 03 Nov 2023 04:39:09 GMT
 recorded_with: VCR 6.2.0
