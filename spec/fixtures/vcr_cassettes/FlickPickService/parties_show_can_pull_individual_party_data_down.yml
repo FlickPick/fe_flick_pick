@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/parties/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"b921ce2579cb8e30f83dcb21136bb33d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 899adb0a-d545-4364-a99f-b815fbce66ea
+      X-Runtime:
+      - '0.041985'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, sql.active_record;dur=8.85, instantiation.active_record;dur=0.13,
+        process_action.action_controller;dur=34.00
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"party","attributes":{"access_code":"ABC123","max_rating":5,"max_duration":120,"genres":"Action,
+        Comedy","services":"Netflix, Hulu","movie_id":1}}}'
+  recorded_at: Fri, 03 Nov 2023 02:34:59 GMT
+recorded_with: VCR 6.2.0

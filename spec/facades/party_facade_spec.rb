@@ -9,8 +9,6 @@ RSpec.describe PartyFacade do
       expect(result.max_rating).to be_a(Integer)
       expect(result.max_duration).to be_a(Integer)
       expect(result.genres).to be_a(String)
-      expect(result.languages).to be_a(String)
-      expect(result.format).to be_a(Integer)
       expect(result.movie_id).to be_a(Integer)
     end
   end

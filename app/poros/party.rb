@@ -1,5 +1,5 @@
 class Party
-  attr_reader :id, :access_code, :max_rating, :max_duration, :genres, :services, :languages, :format, :movie_id
+  attr_reader :id, :access_code, :max_rating, :max_duration, :genres, :services, :movie_id
 
   def initialize(data)
     @id = data[:id]
@@ -8,8 +8,6 @@ class Party
     @max_duration = data[:max_duration]
     @genres = data[:genres]
     @services = data[:services]
-    @languages = data[:languages]
-    @format = data[:format]
     @movie_id = data[:movie_id]
   end
 end
