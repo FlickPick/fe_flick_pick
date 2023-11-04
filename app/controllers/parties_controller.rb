@@ -1,4 +1,7 @@
 class PartiesController < ApplicationController
+  def new
+  end
+  
   def show 
     @party = PartyFacade.search_party(params[:id])
   end
