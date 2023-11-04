@@ -11,5 +11,6 @@ RSpec.feature "User Dashboard", type: :feature do
     click_button "Create New User"
     expect(current_path).to eq("/users/2")
     expect(page).to have_content("John's Dashboard")
+    save_and_open_page
   end
 end
