@@ -11,7 +11,11 @@
   </head>
 
   <body>
-
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
   <% if current_user %>
     <%=  button_to "Dashboard", "/users/1", method: :get %>
     <%=  button_to "Log out", "/sessions/#{current_user.id}", method: :delete %>
