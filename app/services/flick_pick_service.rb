@@ -1,6 +1,7 @@
 class FlickPickService < ApplicationService
   def conn
-    Faraday.new(url: 'http://localhost:3000') 
+    # require 'pry';binding.pry
+    Faraday.new(url: Rails.application.config.conn_url) 
   end
 
   def users_show(id)
@@ -32,7 +33,7 @@ class FlickPickService < ApplicationService
   end
   
   def create_party(party_data)
-    response = conn.post('/api/v1/users') do |req|
+    response = conn.post('/api/v1/parties') do |req|
       req.headers['Content-Type'] = 'application/json'
       req.body = { party: party_data }.to_json
     end

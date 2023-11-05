@@ -16,15 +16,14 @@ class PartyFacade
 
   def create_party(params)
     party_data = {
-      access_code: params[:access_code], 
+      services: params[:services],
+      genres: params[:genres],
       max_duration: params[:max_duration],
       max_rating: params[:max_rating],
-      genres: params[:genres],
-      services: params[:services],
-      movie_id: params[:movie_id]
-    }
+      user_id: params[:user_id]
+  }
     
-    party_service = FlickPickService.new
-    party_service.create_party(party_data)
+    FlickPickService.new
+                    .create_party(party_data)
   end
 end

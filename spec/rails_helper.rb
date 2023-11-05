@@ -79,3 +79,10 @@ VCR.configure do |config|
   config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { ENV['PROPUBLICA_API_KEY'] }
   config.configure_rspec_metadata!
 end
+
+ # before do
+    #   WebMock.allow_net_connect! 
+    #   WebMock.disable! 
+    #   VCR.eject_cassette 
+    #   VCR.turn_off!(:ignore_cassettes => true)
+    # end
