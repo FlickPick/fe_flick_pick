@@ -17,6 +17,6 @@ feature "User can start a party" do
     
     visit new_party_path
 
-    save_and_open_page
+    # save_and_open_page
   end
 end
