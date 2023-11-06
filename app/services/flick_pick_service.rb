@@ -57,10 +57,19 @@ class FlickPickService < ApplicationService
   end
 
   def movies(round, party_id)
-    response = conn.get('/api/v1/movies') do |req|
+    response = conn.get('/api/v1/movies/') do |req|
       req.headers['Content-Type'] = 'application/json'
       req.body = {round: round, party_id: party_id }.to_json
     end
+    json_parse(response)
+  end
+
+  def movie(id)
+    response = conn.get("/api/v1/movies/#{id}") 
+    
+    # do |req|
+    #   req.headers['Content-Type'] = 'application/json'
+    # end
     json_parse(response)
   end
 end

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create]
   resources :parties, only: [:show, :new, :create]
   resources :sessions, only: [:create, :new, :destroy]
-  resources :temp_users, only: [:create]
-  get "/temp_users/:id/picks/waiting_room", to: "picks#waiting_room"
+  resources :temp_users, only: [:create] do
+    resources :selections, only: :index
+  end
+  get "/temp_users/:id/selections/waiting_room", to: "selections#waiting_room"
 end

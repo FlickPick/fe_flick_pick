@@ -4,10 +4,9 @@
   <%= user.name %></br>
 <% end %>
 
-<%= form_with url: "/parties", method: :get, data: { turbo: false } do |f| %>
-  <%= f.hidden_field :user_id, value: params[:user_id] %>
+<%= form_with url: "/temp_users/#{params[:id]}/selections", method: :get, data: { turbo: false } do |f| %>
   <%= f.hidden_field :party_id, value: @temp_users[0].party_id %>
-  <%= f.hidden_field :movies, value: @movies %>
+  <%= f.hidden_field :movies_arr, value: "#{@movies}" %>
   <%= f.hidden_field :access_code, value: params[:access_code] %>
   <%= f.submit "Everyone is here" %>
 <% end %>
