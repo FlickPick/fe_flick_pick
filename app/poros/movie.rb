@@ -6,7 +6,7 @@ class Movie
     @rating = data[:attributes][:rating]
     @runtime = data[:attributes][:runtime]
     @title = data[:attributes][:title]
-    @poster_path = data[:attributes][:poster_path]
+    @poster_path = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/#{data[:attributes][:poster_path]}"
     @genres = genres_name(data)
   end
 

@@ -10,4 +10,8 @@ class SelectionsController < ApplicationController
     @movie = MovieFacade.new
                         .movie(movies_arr[0])
   end
+
+  def round
+    
+  end
 end

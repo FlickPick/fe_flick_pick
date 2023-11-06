@@ -8,6 +8,7 @@
   <%= f.hidden_field :party_id, value: @temp_users[0].party_id %>
   <%= f.hidden_field :movies_arr, value: "#{@movies}" %>
   <%= f.hidden_field :access_code, value: params[:access_code] %>
+  <%= f.hidden_field :round, value: 1 %>
   <%= f.submit "Everyone is here" %>
 <% end %>
 
