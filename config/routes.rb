@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create]
   resources :parties, only: [:show, :new, :create]
   resources :sessions, only: [:create, :new, :destroy]
+  resources :temp_users, only: [:create] do
+    resources :selections, only: :index
+  end
+  get "/temp_users/:id/selections/waiting_room", to: "selections#waiting_room"
+  get "/temp_users/:id/liked_movies/next", to: "liked_movies#next"
+  post "/temp_users/:id/liked_movies/create", to: "liked_movies#create"
 end

@@ -1,4 +1,6 @@
 class PartiesController < ApplicationController
+  before_action :require_current_user
+
   def new
   end
   
@@ -19,4 +21,8 @@ class PartiesController < ApplicationController
       render :new
     end
   end
+
+  # def waiting_room
+  #   @users = blah
+  # end
 end
