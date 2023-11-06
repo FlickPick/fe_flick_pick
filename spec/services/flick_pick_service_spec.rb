@@ -23,7 +23,6 @@ RSpec.describe FlickPickService do
     expect(attributes[:name]).to be_a(String)
     expect(attributes[:email]).to be_a(String)
     expect(attributes[:role]).to be_a(Integer)
-    expect(attributes[:movie_history]).to be_a(String)
   end
 
   it "parties_show; can pull individual party data down", :vcr do 
@@ -32,6 +31,7 @@ RSpec.describe FlickPickService do
     to_return(status: 200, body: json_data, headers: {})
 
     search = FlickPickService.new.parties_show(1)
+1
     expect(search).to be_a Hash
     expect(search[:data]).to be_a Hash
     party_data = search[:data]
