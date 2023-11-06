@@ -7,6 +7,14 @@
       <% else %>
       not logged in
       <% end %>
+
+      <%= form_with url: "/users", method: :post, data: { turbo: false } do |f| %>
+        <%= f.label :name, "Name:" %>
+        <%= f.text_field :name %></br>
+        <%= f.label :access_code, "Access Code:" %>
+        <%= f.text_field :access_code %></br>
+        <%= f.submit "Join Party" %>
+      <% end %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>

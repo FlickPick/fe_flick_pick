@@ -16,8 +16,8 @@ class PartyFacade
 
   def create_party(params)
     party_data = {
-      services: params[:services],
-      genres: params[:genres],
+      services: params[:services].join("|"),
+      genres: params[:genres].join("|"),
       max_duration: params[:max_duration],
       max_rating: params[:max_rating],
       user_id: params[:user_id]

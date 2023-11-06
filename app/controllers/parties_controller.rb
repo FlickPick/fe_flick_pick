@@ -21,4 +21,9 @@ class PartiesController < ApplicationController
       render :new
     end
   end
+
+  # def waiting_room
+  #   @users = blah
+  # end
+  end
 end
