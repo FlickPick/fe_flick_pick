@@ -39,4 +39,12 @@ class FlickPickService < ApplicationService
     end
     response
   end
+
+  def create_temp_user(temp_user_data)
+    response = conn.post('/api/v1/temp_users') do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.body = { temp_user: temp_user_data }.to_json
+    end
+    response
+  end
 end

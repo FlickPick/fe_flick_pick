@@ -25,5 +25,4 @@ class PartiesController < ApplicationController
   # def waiting_room
   #   @users = blah
   # end
-  end
 end

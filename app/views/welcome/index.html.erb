@@ -8,8 +8,8 @@
       not logged in
       <% end %>
 
-      <%= form_with url: "/users", method: :post, data: { turbo: false } do |f| %>
-        <%= f.label :name, "Name:" %>
+      <%= form_with url: "/temp_users", method: :post, data: { turbo: false } do |f| %>
+        <%= f.label :name, "Your name:" %>
         <%= f.text_field :name %></br>
         <%= f.label :access_code, "Access Code:" %>
         <%= f.text_field :access_code %></br>

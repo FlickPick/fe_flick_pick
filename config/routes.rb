@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create]
   resources :parties, only: [:show, :new, :create]
   resources :sessions, only: [:create, :new, :destroy]
+  resources :temp_users, only: [:create]
 end

@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_current_user
-    redirect_to new_session_path unless current_user
-    flash[:error] = "Please log in to access page"
+    unless current_user
+      redirect_to new_session_path 
+      flash[:error] = "Please log in to access page"
+    end
   end
 end
