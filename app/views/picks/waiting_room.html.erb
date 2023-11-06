@@ -1,0 +1,14 @@
+<h1> Please wait until your party is here to continue <h1>
+<h2> Party Code: <%= params[:access_code] %></h2>
+<% @temp_users.each do |user| %>
+  <%= user.name %></br>
+<% end %>
+
+<%= form_with url: "/parties", method: :get, data: { turbo: false } do |f| %>
+  <%= f.hidden_field :user_id, value: params[:user_id] %>
+  <%= f.hidden_field :party_id, value: @temp_users[0].party_id %>
+  <%= f.hidden_field :movies, value: @movies %>
+  <%= f.hidden_field :access_code, value: params[:access_code] %>
+  <%= f.submit "Everyone is here" %>
+<% end %>
+
