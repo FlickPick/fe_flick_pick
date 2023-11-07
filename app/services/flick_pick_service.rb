@@ -82,6 +82,7 @@ class FlickPickService < ApplicationService
       req.headers['Content-Type'] = 'application/json'
       req.params[:party_id] = party_id
     end
+    json_parse(response)
   end
 
   def liked_movies(party_id)

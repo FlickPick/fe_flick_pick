@@ -28,8 +28,9 @@ class PartyFacade
                     .create_party(party_data)
   end
 
-  def results
-    data = FlickPickService.new.results[:data]
-    @results = data.tally
+  def results(party_id)
+    binding.pry
+    data = FlickPickService.new.results(party_id)
+    @results = data[:data].map { |item| item[:attributes]}
   end
 end
