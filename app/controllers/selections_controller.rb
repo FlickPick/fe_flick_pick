@@ -12,8 +12,7 @@ class SelectionsController < ApplicationController
   end
 
   def round
-    binding.pry
     @liked_movies = LikedMovieFacade.new
-                         .liked_movies(params[:party_id])
+                                    .liked_movies(params[:party_id])
   end
 end
