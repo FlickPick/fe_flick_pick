@@ -84,4 +84,11 @@ class FlickPickService < ApplicationService
     end
   end
 
+  def liked_movies(party_id)
+    response = conn.get("/api/v1/liked_movies") do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.params['party_id'] = party_id
+    end
+    json_parse(response)
+  end
 end

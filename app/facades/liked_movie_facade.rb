@@ -9,4 +9,9 @@ class LikedMovieFacade
     FlickPickService.new
                     .create_like(like_data)
   end
+  
+  def liked_movies(party_id)
+    FlickPickService.new
+                    .liked_movies(party_id)
+  end
 end

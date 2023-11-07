@@ -12,7 +12,8 @@ class SelectionsController < ApplicationController
   end
 
   def round
-    
+    @liked_movies = LikedMovieFacade.new
+                                    .liked_movies(params[:party_id])
   end
 
   def results
