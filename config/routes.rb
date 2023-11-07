@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   root "welcome#index"
   resources :users, only: [:show, :new, :create]
   resources :parties, only: [:show, :new, :create]
-  resources :sessions, only: [:create, :new, :destroy]
+  resources :sessions, only: [:create, :new]
   resources :temp_users, only: [:create] do
     resources :selections, only: :index
   end
+  get "/sessions/:id", to: "sessions#destroy"
   get "/temp_users/:id/selections/waiting_room", to: "selections#waiting_room"
+  get "/temp_users/:id/selections/round", to: "selections#round"
   get "/temp_users/:id/liked_movies/next", to: "liked_movies#next"
   post "/temp_users/:id/liked_movies/create", to: "liked_movies#create"
 end
