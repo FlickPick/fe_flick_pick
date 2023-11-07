@@ -9,15 +9,16 @@ RSpec.describe 'Navbar', type: :feature do
 
     visit "/" 
     
-    expect(page).to have_css('nav.navbar')
+    expect(page).to have_css("nav.navbar")
     
-    within('nav.navbar') do
-      expect(page).to have_link('Flick Pick')
+    within("nav.navbar") do
+      expect(page).to have_link("Flick Pick")
     end
 
-    within('ul.navbar-nav') do
-      expect(page).to have_link('Sign in')
-      expect(page).to have_link('Create User')
+    within("ul.navbar-nav") do
+      expect(page).to have_button("Log in with Google")
+      expect(page).to have_link("Sign in")
+      expect(page).to have_link("Create User")
     end
   end
 end
