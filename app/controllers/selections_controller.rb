@@ -14,4 +14,8 @@ class SelectionsController < ApplicationController
   def round
     
   end
+
+  def results
+    @results = PartyFacade.new.results(params[:party_id])
+  end
 end

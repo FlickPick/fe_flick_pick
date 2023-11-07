@@ -2,6 +2,7 @@ class PartyFacade
   def self.search_party(id)
     service = FlickPickService.new
     response = service.parties_show(id)
+    require 'pry';binding.pry
     attributes = response[:data][:attributes]
     Party.new(
       id: response[:data][:id],
@@ -25,5 +26,10 @@ class PartyFacade
     
     FlickPickService.new
                     .create_party(party_data)
+  end
+
+  def results
+    data = FlickPickService.new.results[:data]
+    @results = data.tally
   end
 end
