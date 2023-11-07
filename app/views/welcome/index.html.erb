@@ -2,12 +2,14 @@
 <html lang ="en">
   <head>
     <h1>Welcome</h1>
-      <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
         <% if current_user %>
           current user
         <% else %>
           not logged in
         <% end %>
+      <%= button_to "Sign in", new_session_path, method: :get %><br>
+      <%= button_to "Create User", new_user_path, method: :get %><br>
+      <%= button_to "Log in with Google", '/auth/google_oauth2'  %><br>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
