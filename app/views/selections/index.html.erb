@@ -20,10 +20,12 @@
 <% end %>
 
 <%= @movie.title %></br>
-<img src=<%= @movie.poster_path %> alt= <%= @movie.title %>></br>
-<%= @movie.runtime %></br>
-<%= @movie.rating %></br>
-<% @movie.genres.each do |genre| %>
-  <%= genre %></br>
+  <img src=<%= @movie.poster_path %> alt= <%= @movie.title %>></br>
+  <%= @movie.runtime %></br>
+  <%= @movie.rating %></br>
+  <% unless @movie.genres == "corrupt data" %>
+    <% @movie.genres.each do |genre| %>
+      <%= genre %></br>
+  <% end %>
 <% end %>
 

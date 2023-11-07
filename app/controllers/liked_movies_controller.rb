@@ -6,10 +6,10 @@ class LikedMoviesController < ApplicationController
     movies_arr = JSON.parse(params[:movies_arr])
     unless movies_arr.count == 1
       movies_arr.shift
-      redirect_to "/temp_users/#{params[:id]}/selections?round=#{params[:round]}&movies_arr=#{movies_arr}"
+      redirect_to "/temp_users/#{params[:id]}/selections?round=#{params[:round]}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
     else
-      new_round = params[:round] + 1
-      redirect_to "/liked_movies?round=#{params[:round]}&movie_arr=#{params[:movie_arr]}"
+      new_round = params[:round].to_i + 1
+      redirect_to "/temp_users/#{params[:id]}/selections/round?round=#{new_round}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
     end
   end
   
@@ -17,10 +17,10 @@ class LikedMoviesController < ApplicationController
     movies_arr = JSON.parse(params[:movies_arr])
     unless movies_arr.count <= 1
       movies_arr.shift
-      redirect_to "/temp_users/#{params[:id]}/selections?round=#{params[:round]}&movies_arr=#{movies_arr}"
+      redirect_to "/temp_users/#{params[:id]}/selections?round=#{params[:round]}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
     else
-      new_round = params[:round] + 1
-      redirect_to "/liked_movies?round=#{params[:round]}&movie_arr=#{params[:movie_arr]}"
+      new_round = params[:round].to_i + 1
+      redirect_to "/temp_users/#{params[:id]}/selections/round?round=#{new_round}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
     end
   end
 
