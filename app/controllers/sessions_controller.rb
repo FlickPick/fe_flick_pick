@@ -16,29 +16,30 @@ class SessionsController < ApplicationController
     end
   end
 
-  def omniauth
-    if request.env["omniauth.auth"]["info"]["email_verified"] == true
-      response = UserFacade.new.oauth_verification(request.env["omniauth.auth"]["info"]["email"])
+#   def omniauth
+#     if request.env["omniauth.auth"]["info"]["email_verified"] == true
+#       response = UserFacade.new.oauth_verification(request.env["omniauth.auth"]["info"]["email"])
+# require 'pry'; binding.pry
+#       if response[:status] == 201
+#         session[:user_id] = response[:user_id]
+#         redirect_to user_path(user)
+#       else
+#         redirect_to new_user_path
+#       end
+#     end
+#   end
 
-      if response[:status] == 201
-        session[:user_id] = response[:user_id]
-        redirect_to user_path(user)
-      else
-        redirect_to new_user_path
-      end
+  def omniauth
+    require 'pry'; binding.pry
+    user = FlickPickService.new.oauth_verification(request.env['omniauth.auth'])
+
+    if user.valid? 
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+    else
+      redirect_to new_user_path
     end
   end
-
-  # def omniauth
-  #   user = User.from_omniauth(request.env['omniauth.auth'])
-  
-  #   if user.valid? 
-  #     session[:user_id] = user.id
-  #     redirect_to user_path(user)
-  #   else
-  #     redirect_to new_user_path
-  #   end
-  # end
 
   def destroy
     reset_session

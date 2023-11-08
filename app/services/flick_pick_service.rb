@@ -40,10 +40,12 @@ class FlickPickService < ApplicationService
     response
   end
 
-  def oauth_verification(email)
-    request = conn.get("localhost:3000/api/v1/auth/google_oauth2/callback") do |request|
+  def oauth_verification(user_data)
+    require 'pry'; binding.pry
+    response = conn.get("/api/v1/users/omniauth") do |request|
       request.headers['Content-Type'] = 'application/json'
-      request.body = { email: email }.to_json
+      request.body = { user: user_data }.to_json
     end
+    response
   end
 end
