@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :parties, only: [:show, :new, :create]
   resources :sessions, only: [:create, :new, :destroy]
 
-  get "/auth/:provider/callback" => "sessions#omniauth"
+  get "/auth/google_oauth2/callback" => "sessions#omniauth"
 end
