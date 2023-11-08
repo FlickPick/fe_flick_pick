@@ -17,6 +17,11 @@ feature "User can start a party" do
     
     visit new_party_path
 
-    # save_and_open_page
+    expect(page).to have_content("Services")
+    expect(page).to have_content("Netflix")
+    expect(page).to have_content("Genres")
+    expect(page).to have_content("Action")
+    expect(page).to have_content("Max duration")
+    expect(page).to have_button("Create New Party")
   end
 end

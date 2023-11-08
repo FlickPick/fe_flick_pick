@@ -1,7 +1,9 @@
 <h1><%= @details.movie_title %></h1>
 <img src= <%= @details.movie_poster %> alt= <%= @details.movie_title %>></br>
-<% @details.cast.each do |actor| %>
-  <%= "#{actor&.[](:character)} is played by #{actor&.[](:name)}" %> </br>
+<% if @details.cast %>
+  <% @details.cast.each do |actor| %>
+    <%= "#{actor&.[](:character)} is played by #{actor&.[](:name)}" %> </br>
+  <% end %>
 <% end %>
 <%= link_to "See trailer on Youtube", @details.trailer %></br>
 <iframe src='<%= @details.trailer %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
