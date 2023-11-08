@@ -12,10 +12,10 @@ include ApplicationHelper
                         .movie(movies_arr[0])
   end
 
-  def round
-    @liked_movies = LikedMovieFacade.new
-                                    .liked_movies(params[:party_id])
-  end
+  # def round
+  #   @liked_movies = LikedMovieFacade.new
+  #                                   .liked_movies(params[:party_id])
+  # end
 
   def results
     @results = PartyFacade.new

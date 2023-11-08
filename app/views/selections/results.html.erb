@@ -5,7 +5,7 @@
   <% @results.each do |movie, likers| %>
     <p><img src=<%= movie_quick_show(movie).thumbnail %> alt= <%= movie_quick_show(movie).title %>></br>
     <%= movie_quick_show(movie).title %> - <%= likers %> friend(s) liked this movie</br>
-    <%= link_to "Watch #{movie_quick_show(movie).title}", "/parties/#{params[:party_id]}/patch?movie_id=#{movie}", method: :patch %></br></p>
+    <%= link_to "Watch #{movie_quick_show(movie).title}", "/parties/#{params[:party_id]}/patch?movie_id=#{movie}" %></br></p>
   <% end %>
 </div>
 

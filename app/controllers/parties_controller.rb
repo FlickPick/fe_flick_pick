@@ -1,5 +1,5 @@
 class PartiesController < ApplicationController
-  before_action :require_current_user
+  before_action :require_current_user, except: [:details, :patch]
 
   def new
   end
@@ -16,9 +16,9 @@ class PartiesController < ApplicationController
       party_id = response_data["data"]["id"]
       flash[:success] = "Party created successfully"
       redirect_to "/parties/#{party_id}"
-    else
-      flash[:error] = "Error creating party"
-      render :new
+    # else
+    #   flash[:error] = "Error creating party"
+    #   render :new
     end
   end
 

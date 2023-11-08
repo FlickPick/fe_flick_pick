@@ -1,0 +1,889 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/parties/111222333444/details
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"77fab96e433b91d665d150a356b69897"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5af9e68d-9f6a-471b-9fdc-6f84314b6b3d
+      X-Runtime:
+      - '0.556368'
+      Server-Timing:
+      - sql.active_record;dur=15.64, start_processing.action_controller;dur=0.06,
+        instantiation.active_record;dur=2.27, process_action.action_controller;dur=497.80
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"party":{"data":{"id":"111222333444","type":"party","attributes":{"access_code":"111222","max_rating":"r","max_duration":300,"genres":"28","services":"337","movie_id":9479}}},"movie":{"original_title":"The
+        Nightmare Before Christmas","poster_path":"/oQffRNjK8e19rF7xVYEN8ew0j7b.jpg"},"cast":[{"character":"Jack
+        Skellington (singing) / Barrel / Clown with the Tear away Face (voice)","name":"Danny
+        Elfman"},{"character":"Jack Skellington (voice)","name":"Chris Sarandon"},{"character":"Sally
+        / Shock (voice)","name":"Catherine O''Hara"},{"character":"Dr. Finkelstein
+        (voice)","name":"William Hickey"},{"character":"Mayor (voice)","name":"Glenn
+        Shadix"},{"character":"Lock (voice)","name":"Paul Reubens"},{"character":"Oogie
+        Boogie (voice)","name":"Ken Page"},{"character":"Santa Claus (voice)","name":"Edward
+        Ivory"},{"character":"Man Under Stairs / Vampire / Corpse Dad (voice)","name":"Kerry
+        Katz"},{"character":"Undersea Gal / Man Under the Stairs (voice)","name":"Carmen
+        Twillie"}],"trailer":{"trailer":"lVtetOjX_vk"}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:55 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/liked_movies?party_id=111222333444
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"6e501d2accffac9c99ba9debe19fc0e8"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a73838ed-00ba-4396-b693-8186243c9a63
+      X-Runtime:
+      - '0.020269'
+      Server-Timing:
+      - sql.active_record;dur=10.00, start_processing.action_controller;dur=0.06,
+        instantiation.active_record;dur=3.62, process_action.action_controller;dur=12.92
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"8392":3,"9479":2,"16859":1}'
+  recorded_at: Wed, 08 Nov 2023 21:12:56 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/
+    body:
+      encoding: UTF-8
+      string: '{"round":null,"party_id":"111222333444"}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"69c3b4d5ad9bc87a51296472befc15d2"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d8abfab5-28f4-4a85-9d05-77f2709f9345
+      X-Runtime:
+      - '0.115630'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.05, sql.active_record;dur=0.52, instantiation.active_record;dur=0.04,
+        process_action.action_controller;dur=113.04
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[354912,976573,76600,447365,447277,1076364,1139087,1166714,299536,1154598,568124,640146,505642,616747,616037,24428,299534,453395,508947,8587]"
+  recorded_at: Wed, 08 Nov 2023 21:12:56 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/8392
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"deb9c2fac3d504aff921407a46bddf3d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 41c0f222-b4dd-48cc-8aee-5efce025cec3
+      X-Runtime:
+      - '0.146345'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.08, process_action.action_controller;dur=142.80
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"8392","type":"movie","attributes":{"id":8392,"rating":"G","runtime":86,"title":"My
+        Neighbor Totoro","poster_path":"/rtGDOeG9LzoerkDGZF9dnVeLppL.jpg","genres":[{"id":14,"name":"Fantasy"},{"id":16,"name":"Animation"},{"id":10751,"name":"Family"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:56 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/8392
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"deb9c2fac3d504aff921407a46bddf3d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8ddd79fd-d354-412c-b162-63eb8209e108
+      X-Runtime:
+      - '0.149074'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.11, process_action.action_controller;dur=144.50
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"8392","type":"movie","attributes":{"id":8392,"rating":"G","runtime":86,"title":"My
+        Neighbor Totoro","poster_path":"/rtGDOeG9LzoerkDGZF9dnVeLppL.jpg","genres":[{"id":14,"name":"Fantasy"},{"id":16,"name":"Animation"},{"id":10751,"name":"Family"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:56 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/8392
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"deb9c2fac3d504aff921407a46bddf3d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8ef049ae-8754-4079-8231-8c3a33fdffb5
+      X-Runtime:
+      - '0.155750'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.11, process_action.action_controller;dur=151.67
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"8392","type":"movie","attributes":{"id":8392,"rating":"G","runtime":86,"title":"My
+        Neighbor Totoro","poster_path":"/rtGDOeG9LzoerkDGZF9dnVeLppL.jpg","genres":[{"id":14,"name":"Fantasy"},{"id":16,"name":"Animation"},{"id":10751,"name":"Family"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:56 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/8392
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"deb9c2fac3d504aff921407a46bddf3d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2ff98bac-f9ee-44f3-a1ce-17a2de9959d6
+      X-Runtime:
+      - '0.151254'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=147.93
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"8392","type":"movie","attributes":{"id":8392,"rating":"G","runtime":86,"title":"My
+        Neighbor Totoro","poster_path":"/rtGDOeG9LzoerkDGZF9dnVeLppL.jpg","genres":[{"id":14,"name":"Fantasy"},{"id":16,"name":"Animation"},{"id":10751,"name":"Family"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:56 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/9479
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"2f8284babbeafbb5abcfa099aba2a08c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 789012f3-73a8-4720-a7b6-f34c8d7e6256
+      X-Runtime:
+      - '0.148884'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.12, process_action.action_controller;dur=145.10
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"9479","type":"movie","attributes":{"id":9479,"rating":"PG","runtime":76,"title":"The
+        Nightmare Before Christmas","poster_path":"/oQffRNjK8e19rF7xVYEN8ew0j7b.jpg","genres":[{"id":14,"name":"Fantasy"},{"id":16,"name":"Animation"},{"id":10751,"name":"Family"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:57 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/9479
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"2f8284babbeafbb5abcfa099aba2a08c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5d06684c-3c23-4465-a12d-65d7e0ac54cd
+      X-Runtime:
+      - '0.142004'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.10, process_action.action_controller;dur=138.41
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"9479","type":"movie","attributes":{"id":9479,"rating":"PG","runtime":76,"title":"The
+        Nightmare Before Christmas","poster_path":"/oQffRNjK8e19rF7xVYEN8ew0j7b.jpg","genres":[{"id":14,"name":"Fantasy"},{"id":16,"name":"Animation"},{"id":10751,"name":"Family"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:57 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/9479
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"2f8284babbeafbb5abcfa099aba2a08c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3e740912-5d8a-4858-afae-f71ae7b31694
+      X-Runtime:
+      - '0.142282'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, process_action.action_controller;dur=138.75
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"9479","type":"movie","attributes":{"id":9479,"rating":"PG","runtime":76,"title":"The
+        Nightmare Before Christmas","poster_path":"/oQffRNjK8e19rF7xVYEN8ew0j7b.jpg","genres":[{"id":14,"name":"Fantasy"},{"id":16,"name":"Animation"},{"id":10751,"name":"Family"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:57 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/9479
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"2f8284babbeafbb5abcfa099aba2a08c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - dcc9b858-1094-4e50-bd47-7d41dd1e66d8
+      X-Runtime:
+      - '0.138197'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.08, process_action.action_controller;dur=134.89
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"9479","type":"movie","attributes":{"id":9479,"rating":"PG","runtime":76,"title":"The
+        Nightmare Before Christmas","poster_path":"/oQffRNjK8e19rF7xVYEN8ew0j7b.jpg","genres":[{"id":14,"name":"Fantasy"},{"id":16,"name":"Animation"},{"id":10751,"name":"Family"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:57 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/16859
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"d1b3f18b9a7e8b62816313a2f63ab97e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a5f74d57-f878-4074-a280-e26f64be57fc
+      X-Runtime:
+      - '0.137766'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.13, process_action.action_controller;dur=133.33
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"16859","type":"movie","attributes":{"id":16859,"rating":"G","runtime":103,"title":"Kiki''s
+        Delivery Service","poster_path":"/Aufa4YdZIv4AXpR9rznwVA5SEfd.jpg","genres":[{"id":16,"name":"Animation"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":12,"name":"Adventure"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:57 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/16859
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"d1b3f18b9a7e8b62816313a2f63ab97e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 21d89ae1-f3d3-48d5-9a67-e2bd8a4e0313
+      X-Runtime:
+      - '0.148665'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.13, process_action.action_controller;dur=144.76
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"16859","type":"movie","attributes":{"id":16859,"rating":"G","runtime":103,"title":"Kiki''s
+        Delivery Service","poster_path":"/Aufa4YdZIv4AXpR9rznwVA5SEfd.jpg","genres":[{"id":16,"name":"Animation"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":12,"name":"Adventure"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:57 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/16859
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"d1b3f18b9a7e8b62816313a2f63ab97e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d6345862-7b52-4f2b-969a-27ffc8959f69
+      X-Runtime:
+      - '0.147865'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.08, process_action.action_controller;dur=144.38
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"16859","type":"movie","attributes":{"id":16859,"rating":"G","runtime":103,"title":"Kiki''s
+        Delivery Service","poster_path":"/Aufa4YdZIv4AXpR9rznwVA5SEfd.jpg","genres":[{"id":16,"name":"Animation"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":12,"name":"Adventure"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:58 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/movies/16859
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"d1b3f18b9a7e8b62816313a2f63ab97e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 47cf7bba-6fdf-4a41-9ed8-492367dbd8d9
+      X-Runtime:
+      - '0.142851'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, process_action.action_controller;dur=139.04
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"16859","type":"movie","attributes":{"id":16859,"rating":"G","runtime":103,"title":"Kiki''s
+        Delivery Service","poster_path":"/Aufa4YdZIv4AXpR9rznwVA5SEfd.jpg","genres":[{"id":16,"name":"Animation"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":12,"name":"Adventure"}]}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:58 GMT
+- request:
+    method: patch
+    uri: http://localhost:3000/api/v1/parties/111222333444?movie_id=16859
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"e172795adcd09116c54787067f12aea2"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5e9cd6b6-c803-43bf-834c-04e32f9e90fe
+      X-Runtime:
+      - '0.010803'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, sql.active_record;dur=3.87, instantiation.active_record;dur=0.04,
+        process_action.action_controller;dur=6.95
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"111222333444","type":"party","attributes":{"access_code":"111222","max_rating":"r","max_duration":300,"genres":"28","services":"337","movie_id":16859}}}'
+  recorded_at: Wed, 08 Nov 2023 21:12:58 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/parties/111222333444/details
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"6d5e4e999f24e6c31bddcac6cf02d730"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 36f046a7-eb9e-4da0-9484-8d87576fdd38
+      X-Runtime:
+      - '0.519224'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.05, sql.active_record;dur=0.43, instantiation.active_record;dur=0.02,
+        process_action.action_controller;dur=516.91
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJwYXJ0eSI6eyJkYXRhIjp7ImlkIjoiMTExMjIyMzMzNDQ0IiwidHlwZSI6InBhcnR5IiwiYXR0cmlidXRlcyI6eyJhY2Nlc3NfY29kZSI6IjExMTIyMiIsIm1heF9yYXRpbmciOiJyIiwibWF4X2R1cmF0aW9uIjozMDAsImdlbnJlcyI6IjI4Iiwic2VydmljZXMiOiIzMzciLCJtb3ZpZV9pZCI6MTY4NTl9fX0sIm1vdmllIjp7Im9yaWdpbmFsX3RpdGxlIjoi6a2U5aWz44Gu5a6F5oCl5L6/IiwicG9zdGVyX3BhdGgiOiIvQXVmYTRZZFpJdjRBWHBSOXJ6bndWQTVTRWZkLmpwZyJ9LCJjYXN0IjpbeyJjaGFyYWN0ZXIiOiJLaWtpIC8gVXJzdWxhICh2b2ljZSkiLCJuYW1lIjoiTWluYW1pIFRha2F5YW1hIn0seyJjaGFyYWN0ZXIiOiJKaWppICh2b2ljZSkiLCJuYW1lIjoiUmVpIFNha3VtYSJ9LHsiY2hhcmFjdGVyIjoiVG9tYm8gKHZvaWNlKSIsIm5hbWUiOiJLYXBwZWkgWWFtYWd1Y2hpIn0seyJjaGFyYWN0ZXIiOiJPc29ubyAodm9pY2UpIiwibmFtZSI6IktlaWtvIFRvZGEifSx7ImNoYXJhY3RlciI6Iktva2lyaSAodm9pY2UpIiwibmFtZSI6Ik1pZWtvIE5vYnVzYXdhIn0seyJjaGFyYWN0ZXIiOiJPa2lubyAodm9pY2UpIiwibmFtZSI6IktvaWNoaSBNaXVyYSJ9LHsiY2hhcmFjdGVyIjoiT2xkIExhZHkgKHZvaWNlKSIsIm5hbWUiOiJIYXJ1a28gS2F0xY0ifSx7ImNoYXJhY3RlciI6IkJhcnNhICh2b2ljZSkiLCJuYW1lIjoiSGlyb2tvIFNla2kifSx7ImNoYXJhY3RlciI6IktldHRvICh2b2ljZSkiLCJuYW1lIjoiWXVyaWtvIEZ1Y2hpemFraSJ9LHsiY2hhcmFjdGVyIjoiQmFrZXJ5IFdvcmtlciAvIFBvbGljZW1hbiAodm9pY2UpIiwibmFtZSI6IktvaWNoaSBZYW1hZGVyYSJ9XSwidHJhaWxlciI6eyJ0cmFpbGVyIjoiNGJHMTdPWXMtR0EifX0=
+  recorded_at: Wed, 08 Nov 2023 21:12:58 GMT
+recorded_with: VCR 6.2.0
