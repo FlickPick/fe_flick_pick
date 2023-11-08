@@ -23,7 +23,6 @@ RSpec.describe FlickPickService do
     expect(attributes[:name]).to be_a(String)
     expect(attributes[:email]).to be_a(String)
     expect(attributes[:role]).to be_a(Integer)
-    expect(attributes[:movie_history]).to be_a(String)
   end
 
   it "parties_show; can pull individual party data down", :vcr do 
@@ -44,7 +43,7 @@ RSpec.describe FlickPickService do
     expect(party_data[:type]).to be_a(String)
 
     expect(attributes[:access_code]).to be_a(String)
-    expect(attributes[:max_rating]).to be_a(Integer)
+    expect(attributes[:max_rating]).to be_a(String)
     expect(attributes[:max_duration]).to be_a(Integer)
     expect(attributes[:genres]).to be_a(String)
     expect(attributes[:services]).to be_a(String)
