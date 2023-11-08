@@ -70,7 +70,7 @@ RSpec.describe FlickPickService do
     expect(response.status).to eq(201)
   end
 
-  it "create_user; should send 201 response back" do 
+  it "create_party; should send 201 response back" do 
     party_data = {
       access_code: "ABC123",
       max_rating: "5",
@@ -87,6 +87,80 @@ RSpec.describe FlickPickService do
 
     user_service = FlickPickService.new
     response = user_service.create_party(party_data)
+
+    expect(response.status).to eq(201)
+  end
+
+  it "users_update; can update a user" do
+    json_data = File.read("spec/fixtures/user.json")
+    user_id = 1
+
+    response = double("Response", status: 200, body: json_data)
+
+    conn = double("Faraday")
+    allow(Faraday).to receive(:new).and_return(conn)
+    allow(conn).to receive(:post) do |url, body, headers|
+      expect(url).to eq("/api/v1/users/#{user_id}")
+      response
+    end
+
+    user_data = {
+      name: "Updated Name",
+      email: "updated@example.com",
+      role: 2,
+      password_digest: "updated_password"
+    }
+
+    user_service = FlickPickService.new
+    response = user_service.users_update(user_id, user_data)
+
+    expect(response.status).to eq(200)
+    expect(response.body).to eq(json_data)
+  end
+
+  it "create_party; should send 201 response back", :vcr do
+    party_data = {
+      access_code: "ABC123",
+      max_rating: "5",
+      max_duration: 120,
+      genres: "Action, Comedy",
+      services: "Netflix, Hulu",
+      movie_id: 1
+    }
+
+    response = double("Response", status: 201)
+
+    conn = double("Faraday")
+    allow(Faraday).to receive(:new).and_return(conn)
+    allow(conn).to receive(:post).and_return(response)
+
+    user_service = FlickPickService.new
+    response = user_service.create_party(party_data)
+
+    expect(response.status).to eq(201)
+  end
+
+  it "movie; should return the movie based on its id", :vcr do 
+    stub_request(:get, "/api/v1/movies/550").to_return(status: 200, body: '{"title": "Example Movie"}')
+
+    movie_data = FlickPickService.new.movie(550)
+
+    expect(movie_data[:data][:attributes][:title]).to eq("Fight Club")
+  end
+
+  it "create_temp_user; should create a temporary user", :vcr do 
+    temp_user_data = {
+      name: "User",
+      party_id: "2"
+    }
+
+    conn = double("Faraday")
+    allow(Faraday).to receive(:new).and_return(conn)
+    response = double("Response", status: 201)
+    allow(conn).to receive(:post).and_return(response)
+
+    user_service = FlickPickService.new
+    response = user_service.create_temp_user(temp_user_data)
 
     expect(response.status).to eq(201)
   end

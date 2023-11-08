@@ -12,7 +12,9 @@ feature "After movie selection there is a details page" do
 
     visit "/parties/111222333444/details"
 
+
     expect(page).to have_content("is played by")
     expect(page).to have_link("See trailer on Youtube")
+
   end
 end
