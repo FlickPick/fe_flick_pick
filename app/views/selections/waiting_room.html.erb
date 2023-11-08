@@ -19,10 +19,11 @@
 </body>
 
 <script>
+      var conn_ws = '<%= Rails.application.config.conn_ws %>'
       const queryString = window.location.search
       const urlParams = new URLSearchParams(queryString)
       const partyId = urlParams.get('party_id')
-      const chatChannel = new WebSocket('ws://localhost:3000/cable');
+      const chatChannel = new WebSocket(conn_ws);
 
       chatChannel.onopen = function() {
         chatChannel.send(JSON.stringify({
