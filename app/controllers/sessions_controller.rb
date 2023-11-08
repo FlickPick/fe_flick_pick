@@ -17,14 +17,28 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    user = User.from_omniauth(request.env['omniauth.auth'])
-    if user.valid? 
-      session[:user_id] = user.id
-      redirect_to user_path(user)
-    else
-      redirect_to '/login'
+    if request.env["omniauth.auth"]["info"]["email_verified"] == true
+      response = UserFacade.new.oauth_verification(request.env["omniauth.auth"]["info"]["email"])
+
+      if response[:status] == 201
+        session[:user_id] = response[:user_id]
+        redirect_to user_path(user)
+      else
+        redirect_to new_user_path
+      end
     end
   end
+
+  # def omniauth
+  #   user = User.from_omniauth(request.env['omniauth.auth'])
+  
+  #   if user.valid? 
+  #     session[:user_id] = user.id
+  #     redirect_to user_path(user)
+  #   else
+  #     redirect_to new_user_path
+  #   end
+  # end
 
   def destroy
     reset_session

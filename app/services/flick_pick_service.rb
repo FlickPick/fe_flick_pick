@@ -39,4 +39,11 @@ class FlickPickService < ApplicationService
     end
     response
   end
+
+  def oauth_verification(email)
+    request = conn.get("/api/v1/auth/:provider/callback") do |request|
+      request.headers['Content-Type'] = 'application/json'
+      request.body = { email: email }
+    end
+  end
 end

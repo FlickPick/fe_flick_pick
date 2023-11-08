@@ -48,6 +48,8 @@ gem "faraday"
 gem "sassc-rails"
 gem 'bootstrap', '~> 5.3.2'
 
+# gem 'devise'
+
 gem 'dotenv-rails'
 
 gem 'omniauth'

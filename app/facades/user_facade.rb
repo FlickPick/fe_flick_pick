@@ -24,4 +24,20 @@ class UserFacade
       movie_history: attributes[:movie_history]
       )
   end
+
+  def oauth_verification(email)
+    response = FlickPickService.new.oauth_verification(email)
+    response_body = JSON.parse(response.body, symbolize_names: true)
+    if response.status == 201
+      {
+        status: response.status,
+        user_id: response_body[:data][:id]
+      }
+    else
+      {
+        status: response.status, 
+        error: response_body[:error]
+      }
+    end
+  end
 end
