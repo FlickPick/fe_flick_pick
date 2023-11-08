@@ -1,74 +1,82 @@
-<h3> Start a party </h3>
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <h3 class="mx-auto text-primary" style="width: 150px;"> Start Party </h3>
 
-<%= form_with url: "/parties", method: :post, data: { turbo: false } do |f| %>
-  Services </br>
-  <%= check_box_tag "services[]", 337 %>
-  Disney Plus </br>
-  <%= check_box_tag "services[]", 1899 %>
-  Max </br>
-  <%= check_box_tag "services[]", 9 %>
-  Amazon Prime Video </br>
-  <%= check_box_tag "services[]", 15 %>
-  Hulu </br>
-  <%= check_box_tag "services[]", 8 %>
-  Netflix </br>
-  <%= check_box_tag "services[]", 350 %>
-  Apple TV Plus </br>
-  Genres </br>
-  <%= check_box_tag "genres[]", 28 %>
-  Action </br>
-  <%= check_box_tag "genres[]", 12 %>
-  Adventure </br>
-  <%= check_box_tag "genres[]", 16 %>
-  Animation </br>
-  <%= check_box_tag "genres[]", 35 %>
-  Comedy </br>
-  <%= check_box_tag "genres[]", 80 %>
-  Crime </br>
-  <%= check_box_tag "genres[]", 99 %>
-  Documentary </br>
-  <%= check_box_tag "genres[]", 18 %>
-  Drama </br>
-  <%= check_box_tag "genres[]", 10751 %>
-  Family </br>
-  <%= check_box_tag "genres[]", 14 %>
-  Fantasy </br>
-  <%= check_box_tag "genres[]", 36 %>
-  History </br>
-  <%= check_box_tag "genres[]", 27 %>
-  Horror </br>
-  <%= check_box_tag "genres[]", 10402 %>
-  Music </br>
-  <%= check_box_tag "genres[]", 9648 %>
-  Mystery </br>
-  <%= check_box_tag "genres[]", 10749 %>
-  Romance </br>
-  <%= check_box_tag "genres[]", 878 %>
-  Science Fiction </br>
-  <%= check_box_tag "genres[]", 107770 %>
-  TV Movies </br>
-  <%= check_box_tag "genres[]", 53 %>
-  Thriller </br>
-  <%= check_box_tag "genres[]", 10752 %>
-  War </br>
-  <%= check_box_tag "genres[]", 37 %>
-  Western </br>
-  
-  <%= f.label :max_duration %>
-  <%= f.number_field :max_duration, value: 300 %></br>
+    <%= form_with url: "/parties", method: :post, data: { turbo: false } do |f| %>
+      <div class="text-center text-bold pb-3 text-primary">  
+        Services </br>
+      </div>
+        <%= check_box_tag "services[]", 337 %>
+        Disney Plus </br>
+        <%= check_box_tag "services[]", 1899 %>
+        Max </br>
+        <%= check_box_tag "services[]", 9 %>
+        Amazon Prime Video </br>
+        <%= check_box_tag "services[]", 15 %>
+        Hulu </br>
+        <%= check_box_tag "services[]", 8 %>
+        Netflix </br>
+        <%= check_box_tag "services[]", 350 %>
+        Apple TV Plus </br>
+        Genres </br>
+        <%= check_box_tag "genres[]", 28 %>
+        Action </br>
+        <%= check_box_tag "genres[]", 12 %>
+        Adventure </br>
+        <%= check_box_tag "genres[]", 16 %>
+        Animation </br>
+        <%= check_box_tag "genres[]", 35 %>
+        Comedy </br>
+        <%= check_box_tag "genres[]", 80 %>
+        Crime </br>
+        <%= check_box_tag "genres[]", 99 %>
+        Documentary </br>
+        <%= check_box_tag "genres[]", 18 %>
+        Drama </br>
+        <%= check_box_tag "genres[]", 10751 %>
+        Family </br>
+        <%= check_box_tag "genres[]", 14 %>
+        Fantasy </br>
+        <%= check_box_tag "genres[]", 36 %>
+        History </br>
+        <%= check_box_tag "genres[]", 27 %>
+        Horror </br>
+        <%= check_box_tag "genres[]", 10402 %>
+        Music </br>
+        <%= check_box_tag "genres[]", 9648 %>
+        Mystery </br>
+        <%= check_box_tag "genres[]", 10749 %>
+        Romance </br>
+        <%= check_box_tag "genres[]", 878 %>
+        Science Fiction </br>
+        <%= check_box_tag "genres[]", 107770 %>
+        TV Movies </br>
+        <%= check_box_tag "genres[]", 53 %>
+        Thriller </br>
+        <%= check_box_tag "genres[]", 10752 %>
+        War </br>
+        <%= check_box_tag "genres[]", 37 %>
+        Western </br>
+        
+        <%= f.label :max_duration %>
+        <%= f.number_field :max_duration, value: 300 %></br>
 
-  Rating:
-  <select name="max_rating" id="max_rating">
-  <option value="">--Select--</option>
-  <option value="g">G</option>
-  <option value="pg">PG</option>
-  <option value="pg-13">PG-13</option>
-  <option value="r">R</option>
-  <option value="nc-17">NC-17</option>
-  </select></br>
-  
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit "Create New Party" %>
-<% end %>
+        Rating:
+        <select name="max_rating" id="max_rating">
+        <option value="">--Select--</option>
+        <option value="g">G</option>
+        <option value="pg">PG</option>
+        <option value="pg-13">PG-13</option>
+        <option value="r">R</option>
+        <option value="nc-17">NC-17</option>
+        </select></br>
+        
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.submit "Create New Party" %>
+    <% end %>
+  </head>
+<html>
+
 
 
