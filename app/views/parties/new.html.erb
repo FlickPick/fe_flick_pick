@@ -2,7 +2,7 @@
 
 <%= form_with url: "/parties", method: :post, data: { turbo: false } do |f| %>
   Services </br>
-  <%= check_box_tag "services[]", 337 %>
+  <%= check_box_tag "services[]", 337, value="1" %>
   Disney Plus </br>
   <%= check_box_tag "services[]", 1899 %>
   Max </br>
@@ -15,7 +15,7 @@
   <%= check_box_tag "services[]", 350 %>
   Apple TV Plus </br>
   Genres </br>
-  <%= check_box_tag "genres[]", 28 %>
+  <%= check_box_tag "genres[]", 28, value="1" %>
   Action </br>
   <%= check_box_tag "genres[]", 12 %>
   Adventure </br>
