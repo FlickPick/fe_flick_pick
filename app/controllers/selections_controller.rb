@@ -1,4 +1,5 @@
 class SelectionsController < ApplicationController
+include ApplicationHelper
   def waiting_room
     @temp_users = TempUserFacade.new
                                 .temp_users(params[:party_id])
@@ -14,5 +15,12 @@ class SelectionsController < ApplicationController
   def round
     @liked_movies = LikedMovieFacade.new
                                     .liked_movies(params[:party_id])
+  end
+
+  def results
+    @results = PartyFacade.new
+                          .results(params[:party_id])
+    @movies = MovieFacade.new
+                         .movies(params[:round], params[:party_id])
   end
 end

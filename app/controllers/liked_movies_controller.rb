@@ -9,7 +9,7 @@ class LikedMoviesController < ApplicationController
       redirect_to "/temp_users/#{params[:id]}/selections?round=#{params[:round]}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
     else
       new_round = params[:round].to_i + 1
-      redirect_to "/temp_users/#{params[:id]}/selections/round?round=#{new_round}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
+      redirect_to "/temp_users/#{params[:id]}/selections/results?round=#{new_round}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
     end
   end
   
@@ -20,7 +20,7 @@ class LikedMoviesController < ApplicationController
       redirect_to "/temp_users/#{params[:id]}/selections?round=#{params[:round]}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
     else
       new_round = params[:round].to_i + 1
-      redirect_to "/temp_users/#{params[:id]}/selections/round?round=#{new_round}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
+      redirect_to "/temp_users/#{params[:id]}/selections/results?round=#{new_round}&party_id=#{params[:party_id]}&movies_arr=#{movies_arr}"
     end
   end
 

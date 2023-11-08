@@ -26,4 +26,20 @@ class PartyFacade
     FlickPickService.new
                     .create_party(party_data)
   end
+
+  def results(party_id)
+    FlickPickService.new.results(party_id)
+  end
+
+  def update_party(party_id, movie_id)
+    FlickPickService.new
+                    .update_party(party_id, movie_id)
+  end
+
+  def details(party_id)
+    Details.new(
+      FlickPickService.new
+                      .details_party(party_id)
+    )
+  end
 end
