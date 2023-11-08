@@ -29,8 +29,18 @@ class PartyFacade
   end
 
   def results(party_id)
-    binding.pry
-    data = FlickPickService.new.results(party_id)
-    @results = data[:data].map { |item| item[:attributes]}
+    FlickPickService.new.results(party_id)
+  end
+
+  def update_party(party_id, movie_id)
+    FlickPickService.new
+                    .update_party(party_id, movie_id)
+  end
+
+  def details(party_id)
+    Details.new(
+      FlickPickService.new
+                      .details_party(party_id)
+    )
   end
 end

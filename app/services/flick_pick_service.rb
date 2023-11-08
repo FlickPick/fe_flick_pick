@@ -92,4 +92,17 @@ class FlickPickService < ApplicationService
     end
     json_parse(response)
   end
+
+  def update_party(party_id, movie_id)
+    response = conn.patch("/api/v1/parties/#{party_id}") do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.params['movie_id'] = movie_id
+    end
+    json_parse(response)
+  end
+
+  def details_party(party_id)
+    response = conn.get("/api/v1/parties/#{party_id}/details")
+    json_parse(response)
+  end
 end
