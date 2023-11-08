@@ -5,6 +5,7 @@ class Movie
     unless data == nil
       @id = data[:id]
       @rating = data[:attributes][:rating]
+      @rating = check_rating(data[:attributes][:rating])
       @runtime = data[:attributes][:runtime]
       @title = data[:attributes][:title]
       @poster_path = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/#{data[:attributes][:poster_path]}"
@@ -23,6 +24,14 @@ class Movie
   def genres_name(data)
     data[:attributes][:genres].map do |data|
       data[:name]
+    end
+  end
+
+  def check_rating(data)
+    if data
+      data
+    else
+      "Rating not found"
     end
   end
 end

@@ -2,7 +2,6 @@ class PartyFacade
   def self.search_party(id)
     service = FlickPickService.new
     response = service.parties_show(id)
-    require 'pry';binding.pry
     attributes = response[:data][:attributes]
     Party.new(
       id: response[:data][:id],
