@@ -1,4 +1,6 @@
 class PartiesController < ApplicationController
+  before_action :require_current_user
+
   def new
   end
   
@@ -19,4 +21,21 @@ class PartiesController < ApplicationController
       render :new
     end
   end
+
+
+  def patch
+    response = PartyFacade.new
+                          .update_party(params[:id], params[:movie_id])
+    redirect_to "/parties/#{params[:id]}/details"
+  end
+
+  def details
+    @details = PartyFacade.new
+                          .details(params[:id])             
+  end
+
+
+  # def waiting_room
+  #   @users = blah
+  # end
 end

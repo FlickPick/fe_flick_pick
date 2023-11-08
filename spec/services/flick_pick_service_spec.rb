@@ -44,7 +44,7 @@ RSpec.describe FlickPickService do
     expect(party_data[:type]).to be_a(String)
 
     expect(attributes[:access_code]).to be_a(String)
-    expect(attributes[:max_rating]).to be_a(Integer)
+    expect(attributes[:max_rating]).to be_a(String)
     expect(attributes[:max_duration]).to be_a(Integer)
     expect(attributes[:genres]).to be_a(String)
     expect(attributes[:services]).to be_a(String)

@@ -1,5 +1,10 @@
 class UserFacade 
 
+  def index(party_id)
+    FlickPickService.new
+                    .temp_users(party_id)
+  end
+
   def create_user(params)
     user_data = {
       name: params[:name], 

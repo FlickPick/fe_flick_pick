@@ -1,0 +1,31 @@
+</br>
+</br>
+</br>
+
+<%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/create", method: :post, data: { turbo: false } do |f| %>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+  <%= f.hidden_field :party_id, value: params[:party_id] %>
+  <%= f.hidden_field :movies_arr, value: params[:movies_arr] %>
+  <%= f.hidden_field :access_code, value: params[:access_code] %>
+  <%= f.hidden_field :round, value: params[:round] %>
+  <%= f.submit "Like" %>
+<% end %>
+
+<%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/next", method: :get, data: { turbo: false } do |f| %>
+  <%= f.hidden_field :party_id, value: params[:party_id] %>
+  <%= f.hidden_field :movies_arr, value: params[:movies_arr] %>
+  <%= f.hidden_field :access_code, value: params[:access_code] %>
+  <%= f.hidden_field :round, value: params[:round] %>
+  <%= f.submit "Not Today" %>
+<% end %>
+
+<%= @movie.title %></br>
+  <img src=<%= @movie.poster_path %> alt= <%= @movie.title %>></br>
+  <%= @movie.runtime %></br>
+  <%= @movie.rating %></br>
+  <% unless @movie.genres == "corrupt data" %>
+    <% @movie.genres.each do |genre| %>
+      <%= genre %></br>
+  <% end %>
+<% end %>
+

@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang ="en">
   <head>
-    <h1 class="mx-auto" style="width: 200px;"> Welcome </h1>
-        <% if current_user %>
-          <p class="m-4">Current user</p>
-        <% else %>
-          <p class="m-4">Not logged in</p>
-        <% end %>
-      <%= button_to "Sign in", new_session_path, method: :get, class: "btn btn-primary m-3" %>
-      <%= button_to "Create User", new_user_path, method: :get, class: "btn btn-primary m-3" %>
-      <%= button_to "Log in with Google", '/auth/google_oauth2', class: "m-3"  %>
+    <h1 class="mx-auto text-primary" style="width: 150px;"> Welcome </h1>
+      <% if current_user %>
+        <p class="text-center pb-3 text-white">Current user</p>
+      <% else %>
+        <p class="text-center pb-3 text-white">Not logged in</p>
+      <% end %>
+
+      <%= form_with url: "/temp_users", method: :post, data: { turbo: false } do |f| %>
+        <div class="text-center pb-3 text-primary">  
+          <%= f.label :name, "Your name:" %>
+          <%= f.text_field :name %></br>
+        </div>
+        <div class="text-center pb-3 text-primary">
+          <%= f.label :access_code, "Access Code:" %>
+          <%= f.text_field :access_code %></br>
+        </div>
+        <div class="text-center">
+          <%= f.submit "Join Party", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
