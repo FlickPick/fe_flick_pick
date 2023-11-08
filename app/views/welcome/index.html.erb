@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang ="en">
   <head>
-    <h1>Welcome</h1>
+    <h1 class="m-2">Welcome</h1>
         <% if current_user %>
-          current user
+          <p class="m-4">Current user</p>
         <% else %>
-          not logged in
+          <p class="m-4">Not logged in</p>
         <% end %>
-      <%= button_to "Sign in", new_session_path, method: :get %><br>
-      <%= button_to "Create User", new_user_path, method: :get %><br>
-      <%= button_to "Log in with Google", '/auth/google_oauth2'  %><br>
+      <%= button_to "Sign in", new_session_path, method: :get, class: "btn btn-primary m-3" %>
+      <%= button_to "Create User", new_user_path, method: :get, class: "btn btn-primary m-3" %>
+      <%= button_to "Log in with Google", '/auth/google_oauth2', class: "m-3"  %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
