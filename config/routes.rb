@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get "/temp_users/:id/liked_movies/next", to: "liked_movies#next"
   post "/temp_users/:id/liked_movies/create", to: "liked_movies#create"
   get "/parties/:party_id/selections/results", to: "selections#results", as: "results"
+
+  get "/auth/google_oauth2/callback" => "sessions#omniauth"
 end
