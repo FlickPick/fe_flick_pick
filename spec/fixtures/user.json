@@ -5,8 +5,7 @@
       "attributes": {
           "name": "Reed",
           "email": "reed@turing.edu",
-          "role": 1,
-          "movie_history": ""
+          "role": 1
       }
   }
 }

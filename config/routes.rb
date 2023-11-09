@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   root "welcome#index"
   resources :users, only: [:show, :new, :create]
   resources :parties, only: [:show, :new, :create]
-  resources :sessions, only: [:create, :new]
+  resources :sessions, only: [:create, :new, :destroy]
   resources :temp_users, only: [:create] do
     resources :selections, only: :index
   end
-
+  
+  get "/auth/google_oauth2/callback" => "sessions#omniauth"
   get "/parties/:id/patch", to: "parties#patch"
   get "/parties/:id/details", to: "parties#details"
   get "/sessions/:id", to: "sessions#destroy"

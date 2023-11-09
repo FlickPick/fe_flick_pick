@@ -11,7 +11,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Flick Pick</a>
+    <a class="navbar-brand" href="/">
+      <img src="https://user-images.githubusercontent.com/132484941/281487975-18bb2f06-cd1d-4185-9513-0141cda7ec96.png" alt="Flick Pick Logo">
+    </a>
     <ul class="navbar-nav">
       <% if current_user %>
         <li class="nav-item">
@@ -28,6 +30,7 @@
           <a class="nav-link text-primary" href="<%= new_user_path %>">Create User</a>
         </li>
       <% end %>
+      <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
     </ul>
   </div>
 </nav>

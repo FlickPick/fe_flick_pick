@@ -31,6 +31,7 @@ RSpec.describe FlickPickService do
     to_return(status: 200, body: json_data, headers: {})
 
     search = FlickPickService.new.parties_show(1)
+1
     expect(search).to be_a Hash
     expect(search[:data]).to be_a Hash
     party_data = search[:data]
