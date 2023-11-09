@@ -9,7 +9,6 @@ feature "User can login" do
 
     visit "/"
 
-    expect(page).to have_content("Not logged in")
 
     click_link "Sign in"
 
@@ -17,10 +16,8 @@ feature "User can login" do
     fill_in "Password", with: "Joop!12345"
 
     click_button "Log in"
-    
-    visit "/"
 
-    expect(page).to have_content("Logged in as: Joop")
+    expect(page).to have_content("Joop's Dashboard")
   end
 
   it "User cannot log in, with bad password" do
@@ -31,7 +28,7 @@ feature "User can login" do
 
     visit "/"
 
-    expect(page).to have_content("Not logged in")
+    expect(page).to have_content("Not Logged In")
     
     click_link "Sign in"
     
@@ -44,7 +41,7 @@ feature "User can login" do
 
     visit "/"
 
-    expect(page).to have_content("Not logged in")
+    expect(page).to have_content("Not Logged In")
   end
 
   it "users can log out" do
