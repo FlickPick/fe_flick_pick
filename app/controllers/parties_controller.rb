@@ -30,7 +30,7 @@ class PartiesController < ApplicationController
   end
 
   def details
-    require 'pry';binding.pry
+    # require 'pry';binding.pry
     @details = PartyFacade.new
                           .details(params[:id])             
   end
