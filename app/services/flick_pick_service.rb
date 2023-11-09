@@ -41,7 +41,6 @@ class FlickPickService < ApplicationService
   end
 
   def oauth_verification(user_data)
-    # require 'pry'; binding.pry
     response = conn.get("/api/v1/users/omniauth") do |request|
       request.headers['Content-Type'] = 'application/json'
       request.body = { user: user_data }.to_json

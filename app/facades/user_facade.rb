@@ -20,8 +20,7 @@ class UserFacade
       id: response[:data][:id],
       name: attributes[:name],
       email: attributes[:email],
-      role: attributes[:role],
-      movie_history: attributes[:movie_history]
+      role: attributes[:role]
       )
   end
 
