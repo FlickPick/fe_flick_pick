@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
 
     response = conn.get('/user')
     data = response.body
-    binding.pry
+    # data = JSON.parse(response.body, symbolize_names: true)
 
     conn = Faraday.new(url: Rails.application.config.conn_url, headers: {'Accept': 'application/json'})
 
