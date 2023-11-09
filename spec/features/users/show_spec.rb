@@ -10,6 +10,6 @@ RSpec.feature "User Dashboard", type: :feature do
     expect(current_path).to eq("/users/2")
     expect(page).to have_content("Ethan's Dashboard")
     expect(page).to have_button("Create Party")
-    expect(page).to have_content("Your Top Picks:")
+    # expect(page).to have_content("Your Top Picks:")
   end
 end

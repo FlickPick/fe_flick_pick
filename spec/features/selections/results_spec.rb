@@ -27,7 +27,8 @@ feature "User can see results" do
 
         click_button "Join Party"
 
-        expect(page).to have_content("Party Code:")
+        expect(page).to have_content("Please Wait Until Your Whole Party Is Here!")
+        expect(page).to have_content("Joined Users")
 
         click_button "Everyone is here"
         

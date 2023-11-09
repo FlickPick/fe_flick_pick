@@ -1,20 +1,28 @@
-<body>
-<h1> Please wait until your party is here to continue </h1>
-<h2> Party Code: <%= params[:access_code] %></h2>
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <h1 class="mx-auto text-primary" style="width: 800px;"> Please Wait Until Your Whole Party Is Here!</h1><br>
 
-<h3> Joined Users </h3>
-<ul id="messages">
-  <!-- messages will be displayed here -->
-</ul>
+      
+      <div class="text-center text-bold pb-3 text-primary">
+        <h3 class="text-decoration-underline">Joined Users </h3>
+        <ul id="messages" class="list-unstyled text-center text-bold pb-3 text-primary">
+          <!-- messages will be displayed here -->
+        </ul>
+      </div>
 
-<%= form_with url: "/temp_users/#{params[:id]}/selections", method: :get, data: { turbo: false } do |f| %>
-  <%= f.hidden_field :party_id, value: @temp_users[0].party_id %>
-  <%= f.hidden_field :movies_arr, value: "#{@movies}" %>
-  <%= f.hidden_field :access_code, value: params[:access_code] %>
-  <%= f.hidden_field :round, value: 1 %>
-  <%= f.submit "Everyone is here" %>
-<% end %>
-</body>
+      <%= form_with url: "/temp_users/#{params[:id]}/selections", method: :get, data: { turbo: false } do |f| %>
+        <%= f.hidden_field :party_id, value: @temp_users[0].party_id %>
+        <%= f.hidden_field :movies_arr, value: "#{@movies}" %>
+        <%= f.hidden_field :access_code, value: params[:access_code] %>
+        <%= f.hidden_field :round, value: 1 %>
+        <div class="text-center pb-3 text-primary">  
+          <%= f.submit "Everyone is here", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </body>
+  </head>
+</html>
 
 <script>
       var conn_ws = '<%= Rails.application.config.conn_ws %>'

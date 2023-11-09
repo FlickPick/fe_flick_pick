@@ -1,18 +1,24 @@
-<h1> Results </h1>
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <h1 class="text-center text-bold pb-3 text-primary"> Results </h1><br>
 
-<div id="results">
+    <div id="results" class="text-center text-bold pb-3 text-primary">
+        <% @results.each do |movie, likers| %>
+          <p><img src=<%= movie_quick_show(movie).thumbnail %> alt= <%= movie_quick_show(movie).title %>></br>
+          <%= movie_quick_show(movie).title %> - <%= likers %> friend(s) liked this movie</br>
+          <%= link_to "Watch #{movie_quick_show(movie).title}", "/parties/#{params[:party_id]}/patch?movie_id=#{movie}" %></br></p>
+        <% end %>
+    </div>
 
-  <% @results.each do |movie, likers| %>
-    <p><img src=<%= movie_quick_show(movie).thumbnail %> alt= <%= movie_quick_show(movie).title %>></br>
-    <%= movie_quick_show(movie).title %> - <%= likers %> friend(s) liked this movie</br>
-    <%= link_to "Watch #{movie_quick_show(movie).title}", "/parties/#{params[:party_id]}/patch?movie_id=#{movie}" %></br></p>
-  <% end %>
-</div>
-
-<%= form_with url: "/temp_users/#{params[:id]}/selections", method: :get, data: { turbo: false } do |f| %>
-  <%= f.hidden_field :party_id, value: params[:party_id] %>
-  <%= f.hidden_field :movies_arr, value: "#{@movies}" %>
-  <%= f.hidden_field :access_code, value: params[:access_code] %>
-  <%= f.hidden_field :round, value: params[:round] %>
-  <%= f.submit "We can't agree on anything how are we friends" %>
-<% end %>
+    <%= form_with url: "/temp_users/#{params[:id]}/selections", method: :get, data: { turbo: false } do |f| %>
+      <%= f.hidden_field :party_id, value: params[:party_id] %>
+      <%= f.hidden_field :movies_arr, value: "#{@movies}" %>
+      <%= f.hidden_field :access_code, value: params[:access_code] %>
+      <%= f.hidden_field :round, value: params[:round] %>
+      <div class="text-center pb-3 text-primary">
+        <%= f.submit "We can't agree on anything how are we friends", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+  </head>
+</html>
