@@ -7,6 +7,10 @@
   <!-- results are displayed here -->
 </ul>
 
+<%= form_with url: "/parties/#{params[:party_id]}/details", method: :get, data: {turbo: false } do |f| %>
+  <%= f.submit "Movie Details"%>
+<% end %>
+
 <%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/create", method: :post, data: { turbo: false } do |f| %>
   <%= f.hidden_field :movie_id, value: @movie.id %>
   <%= f.hidden_field :party_id, value: params[:party_id] %>
