@@ -3,6 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.conn_url = 'https://flick-pick-api-ab1114618897.herokuapp.com'
+  config.conn_ws = 'wss://flick-pick-api-ab1114618897.herokuapp.com/cable'
 
   # Code is not reloaded between requests.
   config.cache_classes = true

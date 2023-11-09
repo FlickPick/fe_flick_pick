@@ -92,4 +92,13 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  def joop_login
+    visit new_session_path
+
+    fill_in "Email", with: "joop@turing.edu"
+    fill_in "Password", with: "Joop!12345"
+
+    click_button "Log in"
+  end
 end

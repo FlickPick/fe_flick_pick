@@ -8,6 +8,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.conn_url = 'http://localhost:3000'
+  config.conn_ws = 'ws://localhost:3000/cable'
 
   # Turn false under Spring and add config.action_view.cache_template_loading = true.
   config.cache_classes = true

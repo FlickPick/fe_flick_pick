@@ -47,4 +47,70 @@ class FlickPickService < ApplicationService
     end
     response
   end
+
+  def create_temp_user(temp_user_data)
+    response = conn.post('/api/v1/temp_users') do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.body = { temp_user: temp_user_data }.to_json
+    end
+    response
+  end
+
+  def temp_users(party_id)
+    response = conn.get('/api/v1/temp_users') do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.body = { party_id: party_id }.to_json
+    end
+    json_parse(response)
+  end
+
+  def movies(round, party_id)
+    response = conn.get('/api/v1/movies/') do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.body = {round: round, party_id: party_id }.to_json
+    end
+    json_parse(response)
+  end
+
+  def movie(id)
+    response = conn.get("/api/v1/movies/#{id}") 
+    json_parse(response)
+  end
+
+  def create_like(like_data)
+    response = conn.post('/api/v1/liked_movies') do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.body = { like_data: like_data }.to_json
+    end
+    response
+  end
+
+  def results(party_id)
+    response = conn.get("/api/v1/liked_movies") do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.params[:party_id] = party_id
+    end
+    json_parse(response)
+  end
+
+  def liked_movies(party_id)
+    response = conn.get("/api/v1/liked_movies") do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.params['party_id'] = party_id
+    end
+    json_parse(response)
+  end
+
+  def update_party(party_id, movie_id)
+    response = conn.patch("/api/v1/parties/#{party_id}") do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.params['movie_id'] = movie_id
+    end
+    json_parse(response)
+  end
+
+  def details_party(party_id)
+    response = conn.get("/api/v1/parties/#{party_id}/details")
+    json_parse(response)
+  end
 end

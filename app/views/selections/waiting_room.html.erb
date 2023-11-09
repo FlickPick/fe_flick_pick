@@ -1,0 +1,72 @@
+<body>
+<h1> Please wait until your party is here to continue </h1>
+<h2> Party Code: <%= params[:access_code] %></h2>
+
+<h3> Joined Users </h3>
+<ul id="messages">
+  <!-- messages will be displayed here -->
+</ul>
+
+<%= form_with url: "/temp_users/#{params[:id]}/selections", method: :get, data: { turbo: false } do |f| %>
+  <%= f.hidden_field :party_id, value: @temp_users[0].party_id %>
+  <%= f.hidden_field :movies_arr, value: "#{@movies}" %>
+  <%= f.hidden_field :access_code, value: params[:access_code] %>
+  <%= f.hidden_field :round, value: 1 %>
+  <%= f.submit "Everyone is here" %>
+<% end %>
+</body>
+
+<script>
+      var conn_ws = '<%= Rails.application.config.conn_ws %>'
+      const queryString = window.location.search
+      const urlParams = new URLSearchParams(queryString)
+      const partyId = urlParams.get('party_id')
+      const chatChannel = new WebSocket(conn_ws);
+
+      chatChannel.onopen = function() {
+        chatChannel.send(JSON.stringify({
+          command: 'subscribe',
+          identifier: JSON.stringify({ channel: 'ChatChannel', room: partyId })
+        }));
+
+        sendMessageOnPageLoad();
+      };
+
+      chatChannel.onmessage = function(event) {
+        const response = JSON.parse(event.data);
+
+        // Filter out ping messages and other non-chat messages
+        if (response.type && response.type === "ping") {
+          return; // Ignore ping messages
+        }
+
+        // Check if the response has a 'message' property
+        if (response && response.message) {
+          const messagesList = document.getElementById('messages');
+          const newMessage = document.createElement('li');
+
+          messagesList.innerHTML = '';
+          // Ensure the message content is correctly accessed
+
+          response.message.users.forEach(user => {
+            const newUser = document.createElement('li');
+            newUser.textContent = user;
+            messagesList.appendChild(newUser);
+          });
+        }
+      };
+
+      window.sendMessage = function() {
+        chatChannel.send(JSON.stringify({
+          command: 'message',
+          identifier: JSON.stringify({ channel: 'ChatChannel', room: partyId  }),
+          data: JSON.stringify({ action: 'send_message' })
+        }));
+      };
+
+      // Function to send a message on page load
+      function sendMessageOnPageLoad() {
+        sendMessage();
+      }
+    </script>
+
