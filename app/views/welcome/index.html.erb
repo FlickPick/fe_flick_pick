@@ -3,9 +3,9 @@
   <head>
     <h1>Welcome</h1>
       <% if current_user %>
-        current user
+        <p>Logged in as: <%= current_user.name %></p>
       <% else %>
-      not logged in
+        <p> Not Logged In </p>
       <% end %>
 
       <%= form_with url: "/temp_users", method: :post, data: { turbo: false } do |f| %>
