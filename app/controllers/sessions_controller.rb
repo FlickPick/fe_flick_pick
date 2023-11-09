@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
 #   end
 
   def omniauth
-    require 'pry'; binding.pry
+    # require 'pry'; binding.pry
     user = FlickPickService.new.oauth_verification(request.env['omniauth.auth'])
 
     if user.valid? 
