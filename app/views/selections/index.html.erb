@@ -7,6 +7,23 @@
     <div class="text-center">
       <img src=<%= @movie.poster_path %> alt= <%= @movie.title %>></br><br>
     </div>
+<h4>Results</h4>
+<ul id="results">
+  <!-- results are displayed here -->
+</ul>
+
+<%= form_with url: "/parties/#{params[:party_id]}/details", method: :get, data: {turbo: false } do |f| %>
+  <%= f.submit "Movie Details"%>
+<% end %>
+
+<%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/create", method: :post, data: { turbo: false } do |f| %>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+  <%= f.hidden_field :party_id, value: params[:party_id] %>
+  <%= f.hidden_field :movies_arr, value: params[:movies_arr] %>
+  <%= f.hidden_field :access_code, value: params[:access_code] %>
+  <%= f.hidden_field :round, value: params[:round] %>
+  <%= f.submit "Like" %>
+<% end %>
 
     <div class="text-center text-bold pb-3 text-primary">
       <h4>Runtime: <%= @movie.runtime %></h4>
@@ -52,4 +69,53 @@
   </head>
 </html>
 
+
+<script>
+  var conn_ws = '<%= Rails.application.config.conn_ws %>'
+  const queryString = window.location.search
+  const urlParams = new URLSearchParams(queryString)
+  const partyId = urlParams.get('party_id')
+  const selectionChannel = new WebSocket(conn_ws);
+
+  selectionChannel.onopen = function() {
+    selectionChannel.send(JSON.stringify({
+      command: 'subscribe',
+      identifier: JSON.stringify({ channel: 'SelectionChannel', party: partyId })
+    }));
+
+    updateResultsOnPageLoad();
+  };
+
+  selectionChannel.onmessage = function(event) {
+    const response = JSON.parse(event.data);
+
+    if (response.type && response.type === "ping") {
+      return;
+    }
+
+    if (response && response.message) {
+      const resultsList = document.getElementById('results');
+      const newResults = document.createElement('li');
+
+      resultsList.innerHTML = '';
+      response.message.results.forEach(result => {
+        const newResult = document.createElement('li');
+        newResult.textContent = result;
+        resultsList.appendChild(newResult);
+      });
+    }
+  };
+
+  window.updateResults = function() {
+    selectionChannel.send(JSON.stringify({
+      command: 'message',
+      identifier: JSON.stringify({ channel: 'SelectionChannel', party: partyId }),
+      data: JSON.stringify({ action: 'update_results' })
+    }));
+  };
+
+  function updateResultsOnPageLoad() {
+    updateResults();
+  }
+</script>
 

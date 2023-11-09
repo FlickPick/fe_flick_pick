@@ -40,6 +40,14 @@ class FlickPickService < ApplicationService
     response
   end
 
+  def oauth_verification(user_data)
+    response = conn.get("/api/v1/users/omniauth") do |request|
+      request.headers['Content-Type'] = 'application/json'
+      request.body = { user: user_data }.to_json
+    end
+    response
+  end
+
   def create_temp_user(temp_user_data)
     response = conn.post('/api/v1/temp_users') do |req|
       req.headers['Content-Type'] = 'application/json'

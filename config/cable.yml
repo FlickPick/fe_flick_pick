@@ -6,5 +6,7 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: <%= ENV.fetch("REDIS_URL") { "redis::p7019bd34607c384a4b7c02b21e7810b94386138aeef340ebe956416fd17ea447@ec2-52-55-58-170.compute-1.amazonaws.com:29129" } %>
   channel_prefix: fe_flick_pick_production
+  allowed_request_origins:
+    - https://flick-pick-43b64bfc342e.herokuapp.com
