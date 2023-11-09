@@ -6,8 +6,6 @@
 <ul id="messages">
   <!-- messages will be displayed here -->
 </ul>
-<div id="message_content">
-</div>
 
 <%= form_with url: "/temp_users/#{params[:id]}/selections", method: :get, data: { turbo: false } do |f| %>
   <%= f.hidden_field :party_id, value: @temp_users[0].party_id %>
@@ -49,7 +47,7 @@
 
           messagesList.innerHTML = '';
           // Ensure the message content is correctly accessed
-          console.log(response);
+
           response.message.users.forEach(user => {
             const newUser = document.createElement('li');
             newUser.textContent = user;
