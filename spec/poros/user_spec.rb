@@ -10,9 +10,9 @@ RSpec.describe User do
     }
 
     user = User.new(attributes)
-    expect(user.id).to eq("1")
+    expect(user.id).to eq(1)
     expect(user.name).to eq("User")
     expect(user.email).to eq("useremail")
-    expect(user.role).to eq("1")
+    expect(user.role).to eq(1)
   end
 end

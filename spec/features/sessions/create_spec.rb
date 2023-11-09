@@ -9,7 +9,7 @@ feature "User can login" do
 
     visit "/"
 
-    expect(page).to have_content("Not Logged In")
+    expect(page).to have_content("Not logged in")
 
     click_link "Sign in"
 
@@ -31,7 +31,7 @@ feature "User can login" do
 
     visit "/"
 
-    expect(page).to have_content("Not Logged In")
+    expect(page).to have_content("Not logged in")
     
     click_link "Sign in"
     
@@ -44,7 +44,7 @@ feature "User can login" do
 
     visit "/"
 
-    expect(page).to have_content("Not Logged In")
+    expect(page).to have_content("Not logged in")
   end
 
   it "users can log out" do
