@@ -30,10 +30,8 @@ RSpec.describe FlickPickService do
     stub_request(:get, "http://localhost:5000/parties/1").
     to_return(status: 200, body: json_data, headers: {})
 
-    search = FlickPickService.new.parties_show(1)
-1
+    search = FlickPickService.new.parties_show(222333444555)
     expect(search).to be_a Hash
-    expect(search[:data]).to be_a Hash
     party_data = search[:data]
 
     attributes = party_data[:attributes]

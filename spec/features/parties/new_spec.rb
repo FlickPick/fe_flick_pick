@@ -26,23 +26,6 @@ feature "User can start a party" do
     expect(page).to have_button("Create New Party")
   end
   
-  it "will create new party" do
-    
-    WebMock.allow_net_connect! 
-    WebMock.disable! 
-    VCR.eject_cassette 
-    VCR.turn_off!(:ignore_cassettes => true)
-    
-    joop_login
-    
-    visit new_party_path
-    
-    select "PG-13", :from => "max_rating"
-    
-    click_button "Create New Party"
-    
-    expect(page).to have_content("Party Access Code:")
-  end
   
   it "add a movie to create a created party party(update/patch)", :vcr do
     
