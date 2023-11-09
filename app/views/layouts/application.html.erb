@@ -32,6 +32,7 @@
   </div>
 </nav>
 <body>
+<%= link_to "Login", "https://github.com/login/oauth/authorize?client_id=#{Rails.application.credentials.github[:client_id]}&scope=repo" %>
   <%= yield %>
 </body>
 </html>
