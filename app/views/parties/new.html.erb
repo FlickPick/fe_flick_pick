@@ -125,8 +125,8 @@
         <option value="nc-17">NC-17</option>
         </select></br>
       </div>
-      <div class="text-center pb-3 text-primary">  
         <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="text-center pb-3 text-primary">  
         <%= f.submit "Create New Party", class: "btn btn-primary" %>
       </div>
     <% end %>

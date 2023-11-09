@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang ="en">
   <head>
-    <h1>Welcome</h1>
+    <h1 class="mx-auto text-primary" style="width: 450px;">Welcome To Flick Pick!</h1>
       <% if current_user %>
-        current user
+        <p class="text-center pb-3 text-white">Current User</p>
       <% else %>
-      not logged in
+        <p class="text-center pb-3 text-white">Not Logged In</p>
       <% end %>
 
       <%= form_with url: "/temp_users", method: :post, data: { turbo: false } do |f| %>
-        <%= f.label :name, "Your name:" %>
-        <%= f.text_field :name %></br>
-        <%= f.label :access_code, "Access Code:" %>
-        <%= f.text_field :access_code %></br>
-        <%= f.submit "Join Party" %>
+        <div class="text-center pb-3 text-primary">  
+          <%= f.label :name, "Your name:" %>
+          <%= f.text_field :name %></br>
+        </div>
+        <div class="text-center pb-3 text-primary">
+          <%= f.label :access_code, "Access Code:" %>
+          <%= f.text_field :access_code %></br>
+        </div>
+        <div class="text-center">
+          <%= f.submit "Join Party", class: "btn btn-primary" %>
+        </div>
       <% end %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

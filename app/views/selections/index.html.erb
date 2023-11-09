@@ -1,31 +1,55 @@
-</br>
-</br>
-</br>
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+  </br>
+    <h1 class="mx-auto text-primary" style="width: 200px;"><%= @movie.title %></h1></br>
 
-<%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/create", method: :post, data: { turbo: false } do |f| %>
-  <%= f.hidden_field :movie_id, value: @movie.id %>
-  <%= f.hidden_field :party_id, value: params[:party_id] %>
-  <%= f.hidden_field :movies_arr, value: params[:movies_arr] %>
-  <%= f.hidden_field :access_code, value: params[:access_code] %>
-  <%= f.hidden_field :round, value: params[:round] %>
-  <%= f.submit "Like" %>
-<% end %>
+    <div class="text-center">
+      <img src=<%= @movie.poster_path %> alt= <%= @movie.title %>></br><br>
+    </div>
 
-<%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/next", method: :get, data: { turbo: false } do |f| %>
-  <%= f.hidden_field :party_id, value: params[:party_id] %>
-  <%= f.hidden_field :movies_arr, value: params[:movies_arr] %>
-  <%= f.hidden_field :access_code, value: params[:access_code] %>
-  <%= f.hidden_field :round, value: params[:round] %>
-  <%= f.submit "Not Today" %>
-<% end %>
+    <div class="text-center text-bold pb-3 text-primary">
+      <h4>Runtime: <%= @movie.runtime %></h4>
+    </div>
+    <div class="text-center text-bold pb-3 text-primary">
+      <h4>Rating: <%= @movie.rating %></h4>
+    </div>
+    <div class="text-center text-bold pb-3 text-primary">
+      <h4 class="text-decoration-underline">Genre(s):<h4>
+        <% unless @movie.genres == "corrupt data" %>
+          <% @movie.genres.each do |genre| %>
+            <h6><%= genre %></h6>
+          <% end %>
+        <%end%>
+    </div>
 
-<%= @movie.title %></br>
-  <img src=<%= @movie.poster_path %> alt= <%= @movie.title %>></br>
-  <%= @movie.runtime %></br>
-  <%= @movie.rating %></br>
-  <% unless @movie.genres == "corrupt data" %>
-    <% @movie.genres.each do |genre| %>
-      <%= genre %></br>
-  <% end %>
-<% end %>
+    <div class="row">
+      <div class="col">
+          <%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/next", method: :get, data: { turbo: false } do |f| %>
+          <%= f.hidden_field :party_id, value: params[:party_id] %>
+          <%= f.hidden_field :movies_arr, value: params[:movies_arr] %>
+          <%= f.hidden_field :access_code, value: params[:access_code] %>
+          <%= f.hidden_field :round, value: params[:round] %>
+          <div class="text-center pb-3 text-primary">
+            <%= f.submit "Not Today", class: "btn btn-danger" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col">
+            <%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/create", method: :post, data: { turbo: false } do |f| %>
+          <%= f.hidden_field :movie_id, value: @movie.id %>
+          <%= f.hidden_field :party_id, value: params[:party_id] %>
+          <%= f.hidden_field :movies_arr, value: params[:movies_arr] %>
+          <%= f.hidden_field :access_code, value: params[:access_code] %>
+          <%= f.hidden_field :round, value: params[:round] %>
+          <div class="text-center pb-3 text-primary">  
+            <%= f.submit "Like", class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </head>
+</html>
+
 
