@@ -3,10 +3,13 @@
   <head>
     <h1 class="mx-auto text-primary" style="width: 800px;"> Please Wait Until Your Whole Party Is Here!</h1><br>
 
-<h3> Joined Users </h3>
-<ul id="messages">
-  <!-- messages will be displayed here -->
-</ul>
+      
+      <div class="text-center text-bold pb-3 text-primary">
+        <h3 class="text-decoration-underline">Joined Users </h3>
+        <ul id="messages" class="list-unstyled text-center text-bold pb-3 text-primary">
+          <!-- messages will be displayed here -->
+        </ul>
+      </div>
 
       <%= form_with url: "/temp_users/#{params[:id]}/selections", method: :get, data: { turbo: false } do |f| %>
         <%= f.hidden_field :party_id, value: @temp_users[0].party_id %>

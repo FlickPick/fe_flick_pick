@@ -51,11 +51,11 @@
       </div>
     </div><br>
 
-      <div class="text-center text-bold pb-3 text-primary">
-      <h4 class="text-decoration-underline">Results:</h4>
-      <ul id="results">
-        <!-- results are displayed here -->
-      </ul>
+      <div class="list-unstyled text-center text-bold pb-3 text-primary">
+        <h4 class="text-decoration-underline">Results:</h4>
+        <ul id="results">
+          <!-- results are displayed here -->
+        </ul>
       </div>
 
       <%= form_with url: "/parties/#{params[:party_id]}/details", method: :get, data: {turbo: false } do |f| %>
