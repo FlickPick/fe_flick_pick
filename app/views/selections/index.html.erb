@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html lang ="en">
   <head>
-  </br>
-    <h1 class="mx-auto text-primary" style="width: 200px;"><%= @movie.title %></h1></br>
+  <br>
+    <h1 class="text-center text-bold pb-3 text-primary"><%= @movie.title %></h1></br>
 
     <div class="text-center">
-      <img src=<%= @movie.poster_path %> alt= <%= @movie.title %>></br><br>
+      <img src=<%= @movie.poster_path %> alt= <%= @movie.title %>><br><br>
     </div>
-<h4>Results</h4>
-<ul id="results">
-  <!-- results are displayed here -->
-</ul>
 
-<%= form_with url: "/parties/#{params[:party_id]}/details", method: :get, data: {turbo: false } do |f| %>
-  <%= f.submit "Movie Details"%>
-<% end %>
-
-<%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/create", method: :post, data: { turbo: false } do |f| %>
-  <%= f.hidden_field :movie_id, value: @movie.id %>
-  <%= f.hidden_field :party_id, value: params[:party_id] %>
-  <%= f.hidden_field :movies_arr, value: params[:movies_arr] %>
-  <%= f.hidden_field :access_code, value: params[:access_code] %>
-  <%= f.hidden_field :round, value: params[:round] %>
-  <%= f.submit "Like" %>
-<% end %>
 
     <div class="text-center text-bold pb-3 text-primary">
       <h4>Runtime: <%= @movie.runtime %></h4>
@@ -38,8 +22,8 @@
             <h6><%= genre %></h6>
           <% end %>
         <%end%>
-    </div>
-
+    </div><br>
+    <br>
     <div class="row">
       <div class="col">
           <%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/next", method: :get, data: { turbo: false } do |f| %>
@@ -54,21 +38,33 @@
       </div>
 
       <div class="col">
-            <%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/create", method: :post, data: { turbo: false } do |f| %>
+        <%= form_with url: "/temp_users/#{params[:temp_user_id]}/liked_movies/create", method: :post, data: { turbo: false } do |f| %>
           <%= f.hidden_field :movie_id, value: @movie.id %>
           <%= f.hidden_field :party_id, value: params[:party_id] %>
           <%= f.hidden_field :movies_arr, value: params[:movies_arr] %>
           <%= f.hidden_field :access_code, value: params[:access_code] %>
           <%= f.hidden_field :round, value: params[:round] %>
-          <div class="text-center pb-3 text-primary">  
+          <div class="text-center pb-3 text-primary">
             <%= f.submit "Like", class: "btn btn-success" %>
           </div>
         <% end %>
       </div>
-    </div>
+    </div><br>
+
+      <div class="text-center text-bold pb-3 text-primary">
+      <h4 class="text-decoration-underline">Results:</h4>
+      <ul id="results">
+        <!-- results are displayed here -->
+      </ul>
+      </div>
+
+      <%= form_with url: "/parties/#{params[:party_id]}/details", method: :get, data: {turbo: false } do |f| %>
+        <div class="text-center pb-3 text-primary">  
+          <%= f.submit "Movie Details", class: "btn btn-primary"%>
+        </div>
+      <% end %>
   </head>
 </html>
-
 
 <script>
   var conn_ws = '<%= Rails.application.config.conn_ws %>'
